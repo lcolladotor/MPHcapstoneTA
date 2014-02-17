@@ -451,6 +451,13 @@ shinyServer(function(input, output, session) {
 	## Update office hour options
 	observe({
 		choices <- TAhour[[input$ta]][[input$weekday]]
+		## Special case for Therri
+		if(input$ta == "Therri") {
+			new <- newEntry()
+			if( as.character(as.Date(new$desiredDate, tz="America/New_York")) %in% c("2014-02-24", "2014-02-27")) {
+				choices <- c("12:15-12:45", "12:45-13:15", "13:15-13:45", "13:45-14:15", "14:15-14:45", "14:45-15:15")
+			}
+		}
 		updateSelectInput(session, "hour", choices=choices)
 	})
 	
