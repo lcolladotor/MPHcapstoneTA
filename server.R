@@ -63,49 +63,92 @@ TAhour <- list(
 
 TAroom <- list(
 	"Megan" = list(
-		"Monday" = "TBD",
-		"Tuesday" = "TBD",
-		"Wednesday" = "TBD",
-		"Thursday" = "TBD",
-		"Friday" = "TBD"
+		"2014-02-04" = "Wolfe Building W2207",
+		"2014-02-05" = "Wolfe Building W2207",
+		"2014-02-11" = "Wolfe Building W2207",
+		"2014-02-12" = "Wolfe Building W2207",
+		"2014-02-18" = "Wolfe Building W2207",
+		"2014-02-19" = "Wolfe Building W2207",
+		"2014-02-25" = "Wolfe Building W2207",
+		"2014-02-26" = "Wolfe Building W2207",
+		"2014-03-04" = "Wolfe Building W2207",
+		"2014-03-05" = "Wolfe Building W2207",
+		"2014-03-11" = "Wolfe Building W2207",
+		"2014-03-12" = "Wolfe Building W2207"
 	),
 	"Leo" = list(
-		"Monday" = "TBD",
-		"Tuesday" = "TBD",
-		"Wednesday" = "Wolfe Building E3032 (temporary) until the MPH administrative coordinator gets the room assignments",
-		"Thursday" = "TBD",
-		"Friday" = "Wolfe Building E3032 (temporary) until the MPH administrative coordinator gets the room assignments"
+		"2014-01-31" = "Wolfe Building W2303",
+		"2014-02-05" = "Wolfe Building W2205",
+		"2014-02-07" = "Wolfe Building W2205",
+		"2014-02-12" = "Wolfe Building E4130",
+		"2014-02-14" = "Wolfe Building W2205",
+		"2014-02-19" = "Wolfe Building E4130",
+		"2014-02-21" = "Wolfe Building W2205",
+		"2014-02-26" = "Wolfe Building W2205",
+		"2014-02-28" = "Wolfe Building W2205",
+		"2014-03-05" = "Wolfe Building E4130",
+		"2014-03-07" = "Wolfe Building W2205",
+		"2014-03-12" = "Wolfe Building E4130",
+		"2014-03-14" = "Wolfe Building W2205"
 	),
 	"Kevin" = list(
-		"Monday" = "TBD",
-		"Tuesday" = "TBD",
-		"Wednesday" = "TBD",
-		"Thursday" = "TBD",
-		"Friday" = "TBD"
+		"2014-02-04" = "Wolfe Building W2205",
+		"2014-02-05" = "Wolfe Building W2207",
+		"2014-02-11" = "Wolfe Building W2205",
+		"2014-02-12" = "Wolfe Building W2207",
+		"2014-02-18" = "Wolfe Building E6130",
+		"2014-02-19" = "Wolfe Building W2207",
+		"2014-02-25" = "Wolfe Building W2205",
+		"2014-02-26" = "Wolfe Building W2207",
+		"2014-03-04" = "Wolfe Building W2205",
+		"2014-03-05" = "Wolfe Building W2207",
+		"2014-03-11" = "Wolfe Building E6130",
+		"2014-03-12" = "Wolfe Building W2207"
 	),
 	"Amy" = list(
-		"Monday" = "TBD",
-		"Tuesday" = "TBD",
-		"Wednesday" = "TBD",
-		"Thursday" = "TBD",
-		"Friday" = "TBD"
-	),
-	"Molly" = list(
-		"Monday" = "TBD",
-		"Tuesday" = c("Hampton House Room 508"),
-		"Wednesday" = "TBD",
-		"Thursday" = "TBD",
-		"Friday" = "TBD"
+		"2014-02-03" = "Wolfe Building W2300",
+		"2014-02-04" = "Wolfe Building W4007",
+		"2014-02-10" = "Wolfe Building W2300",
+		"2014-02-11" = "Wolfe Building E2133",
+		"2014-02-17" = "Wolfe Building W2300",
+		"2014-02-18" = "Wolfe Building W4007",
+		"2014-02-24" = "Wolfe Building W2300",
+		"2014-02-25" = "Wolfe Building W4007",
+		"2014-03-03" = "Wolfe Building W2300",
+		"2014-03-04" = "Wolfe Building W4007",
+		"2014-03-10" = "Wolfe Building W2300",
+		"2014-03-11" = "Wolfe Building W4007"
 	),
 	"Therri" = list(
-		"Monday" = "TBD",
-		"Tuesday" = "TBD",
-		"Wednesday" = "TBD",
-		"Thursday" = "TBD",
-		"Friday" = "TBD"
-	),
-	"Choose a TA" = list("Monday" = "TBD", "Tuesday" = "TBD", "Wednesday" = "TBD", "Thursday" = "TBD", "Friday" = "TBD")
+		"2014-02-03" = "Wolfe Building W2033",
+		"2014-02-06" = "Wolfe Building W2303",
+		"2014-02-10" = "Wolfe Building W2207",
+		"2014-02-13" = "Wolfe Building W3513",
+		"2014-02-17" = "Wolfe Building W2207",
+		"2014-02-20" = "Wolfe Building W2303",
+		"2014-02-24" = "Wolfe Building E2133",
+		"2014-02-27" = "Wolfe Building W2303",
+		"2014-03-03" = "Wolfe Building W2207",
+		"2014-03-06" = "Wolfe Building W2303",
+		"2014-03-10" = "Wolfe Building W2207",
+		"2014-03-13" = "Wolfe Building W2303"
+	)
 )
+
+## Assign room
+assignRoom <- function(new) {
+	## Assign room
+	if(new$TA == "Molly") {
+		mtgRoom <- "Hampton House Room 508"
+	} else {
+		mtgRoom <-  TAroom[[new$TA]][[as.character(as.Date(new$desiredDate, tz="America/New_York"))]]
+	}
+	## Assign default room if 
+	mtgRoom <- ifelse(is.null(mtgRoom), "*to be determined*", mtgRoom)
+	
+	## Done
+	return(mtgRoom)
+}
 
 ## Select the date for the reservation
 getDesiredDate <- function(data) {
@@ -132,8 +175,13 @@ getDesiredDate <- function(data) {
 ## Build message
 buildMsg <- function(new, tentative="*tentative* ") {
 	tmpSkype <- paste0(c(" (skype ID: ", new$Skype, ")"), collapse="")
+	
+	## Assign room
+	mtgRoom <- assignRoom(new)
+		
+	## Construct the message
 	msg <- paste0(c(
-		"Dear ", new$Student, ", your ", tentative, "office hour reservation is with TA ", new$TA, " on ", as.character(as.Date(new$desiredDate, tz="America/New_York")), " at ", new$officeHour, ". You have specified that your email is ", new$Email, ". Furthermore, you are ", ifelse(new$Distance == "No", "not ", ""), "a distance student", ifelse(new$Distance == "Yes", tmpSkype, ""), ", and your MPH concentration is '", new$Concentration, "'.\n The meeting will be at ", TAroom[[new$TA]][[new$Weekday]], "."
+		"Dear ", new$Student, ", your ", tentative, "office hour reservation is with TA ", new$TA, " on ", as.character(as.Date(new$desiredDate, tz="America/New_York")), " at ", new$officeHour, ". You have specified that your email is ", new$Email, ". Furthermore, you are ", ifelse(new$Distance == "No", "not ", ""), "a distance student", ifelse(new$Distance == "Yes", tmpSkype, ""), ", and your MPH concentration is '", new$Concentration, "'.\n The meeting will be at ", mtgRoom, "."
 	), collapse="") 
 	return(msg)
 }
@@ -213,9 +261,9 @@ calendarBuild <- function(file, reservations, public=TRUE) {
 	
 		cat("BEGIN:VEVENT\n")
 		if(public) {
-			cat(paste("SUMMARY: TA", reservations$TA[i], "Student", reservations$Student[i], "\n", sep=" "))
+			cat(paste("SUMMARY: TA", reservations$TA[i], "Student", reservations$Student[i], "Location", assignRoom(reservations[i, ]), "\n", sep=" "))
 		} else {
-			cat(paste("SUMMARY:", reservations$Student[i], reservations$Email[i], reservations$Skype[i], reservations$Concentration[i], "\n", sep=" "))
+			cat(paste("SUMMARY:", reservations$Student[i], reservations$Email[i], reservations$Skype[i], reservations$Concentration[i], assignRoom(reservations[i, ]), "\n", sep=" "))
 		}
 		
 		cat(paste0("DTSTAMP:", stamp, "\n"))
