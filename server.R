@@ -406,9 +406,12 @@ shinyServer(function(input, output, session) {
 				conf <- confirmEmail(emailInfo$from, emailInfo$to, emailInfo$subject, emailInfo$msg)
 				#cat(conf)
 				
+				## Create backup just in case
+				save(reservations, file=paste0("reservations.backup-", Sys.time(), ".Rdata"))
+				
 				## Save changes
 				save(reservations, file="reservations.Rdata")
-			
+							
 				## Finish
 				updateSelectInput(session, "reserve", choices=c("Cancellation registered"))
 			}			
@@ -431,6 +434,9 @@ shinyServer(function(input, output, session) {
 				## Send email				
 				conf <- confirmEmail(emailInfo$from, emailInfo$to, emailInfo$subject, emailInfo$msg)
 				#cat(conf)
+				
+				## Create backup just in case
+				save(reservations, file=paste0("reservations.backup-", Sys.time(), ".Rdata"))
 				
 				## Save changes
 				save(reservations, file="reservations.Rdata")
