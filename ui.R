@@ -123,7 +123,11 @@ shinyUI(pageWithSidebar(
 	mainPanel(
 		tabsetPanel(
 			## TA assigned calendar
-			tabPanel("Reservation details",			
+			tabPanel("Reservation details",
+				h4("Important rules!"),
+				tags$b("You may only have one active reservation at any given time!"),
+				tags$p("This ensures that all students have an equal and fair opportunity to sign up for TA sessions and get help, advice, and feedback on their projects."),
+				helpText("You need to reschedule? Then please cancel your active reservation before making a second one."),
 				h4("Your *tentative* entry"),
 				verbatimTextOutput('yourEntry'),
 				h4("Check Entry"),

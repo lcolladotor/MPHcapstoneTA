@@ -203,13 +203,13 @@ checkEntry <- function(new, reservations, verbose=TRUE) {
 		if(verbose) cat("Guide: Please choose your MPH concentration.\n")
 	} else {
 		## Does the reservation already exist? Cancelling?
-		pre <- subset(reservations, TA == new$TA & Student == new$Student & Email == new$Email & Distance == new$Distance & Skype == new$Skype & Concentration == new$Concentration & desiredDate == new$desiredDate)
+		pre <- subset(reservations, TA == new$TA & tolower(Student) == tolower(new$Student) & tolower(Email) == tolower(new$Email) & Distance == new$Distance & tolower(Skype) == tolower(new$Skype) & Concentration == new$Concentration & desiredDate == new$desiredDate)
 				
 		## Is there an overlap? Someone reserved the slot already?
 		ov <- subset(reservations, TA == new$TA & desiredDate == new$desiredDate)
 		
 		## Do you already have a reservation?
-		gotone <- subset(reservations, Student == new$Student & Email == new$Email & Distance == new$Distance & Skype == new$Skype & Concentration == new$Concentration & desiredDate >= new$reservationDate)
+		gotone <- subset(reservations, tolower(Student) == tolower(new$Student) & tolower(Email) == tolower(new$Email) & Distance == new$Distance & tolower(Skype) == tolower(new$Skype) & Concentration == new$Concentration & desiredDate >= new$reservationDate)
 		
 		
 		if (nrow(ov) > 0 & nrow(pre) ==  0) {
