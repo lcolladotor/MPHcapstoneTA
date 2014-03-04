@@ -279,7 +279,7 @@ calendarBuild <- function(file, reservations, public=TRUE) {
 
 
 ## Build email msg
-buildEmail <- function(new, action="confirm") {
+buildEmail <- function(new, action="confirm", verbose=TRUE) {
 	tentative <- ifelse(action == "confirm", "*confirmed* ", "*cancelled* ")
 	msg <- buildMsg(new, tentative)
 	
@@ -299,8 +299,10 @@ buildEmail <- function(new, action="confirm") {
 #	cat(taemails$email[taemails$ta == new$TA])
 #	cat(msg)
 #	cat(paste0("<", new$Email, ">"))
-	cat("\n\n")
-	cat(msgStudent)
+	if(verbose) {
+		cat("\n\n")
+		cat(msgStudent)
+	}
 	res <- list(to=taemails$email[taemails$ta == new$TA], subject=subject, msg=msg)
 	return(res)
 }
@@ -417,6 +419,8 @@ shinyServer(function(input, output, session) {
 			}			
 			cat("\n\nYou have successfully cancelled your reservation. You can verify this on the 'Current reservations' tab: your reservation will no longer appear on the current slots taken.")
 			
+			
+			
 		} else if(check == "Complete" & input$reserve %in% c("Submit reservation", "Reservation submitted")) {
 			cat("Confirmation message:\n\n")
 			emailInfo <- buildEmail(new, "confirm")
@@ -446,6 +450,30 @@ shinyServer(function(input, output, session) {
 			}	
 			cat("\n\nYou have successfully completed your office hour reservation. You can verify this on the 'Current reservations' tab: your reservation will appear on the current slots taken.")
 		}
+	})
+	
+	## Create a link to the messsage for students to download
+	output$message <- renderUI({
+		new <- newEntry()
+		reservations <- loadReservations()
+
+		check <- checkEntry(new, reservations, verbose=FALSE)
+		if(input$reserve %in% c("Cancellation registered", "Reservation submitted")) {
+			if(check == "Can cancel") {
+				emailInfo <- buildEmail(new, "cancel", verbose=FALSE)
+			} else if(check == "Complete") {
+				emailInfo <- buildEmail(new, "confirm", verbose=FALSE)
+			}
+			## Create link to message for students to download
+			confFile <- paste0("messages/", as.character(Sys.time()), "-", as.character(round(runif(1, 1e14, 1e15 - 1), 0)), ".txt")
+			sink(paste0("www/", confFile))
+			cat(emailInfo$msg)
+			sink()
+			HTML(paste0("Download <a href='/", confFile, "'>confirmation information</a>."))
+		} else{
+			HTML("")	
+		}
+		
 	})
 	
 	## Update TA options
