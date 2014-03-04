@@ -469,7 +469,7 @@ shinyServer(function(input, output, session) {
 			sink(paste0("www/", confFile))
 			cat(emailInfo$msg)
 			sink()
-			HTML(paste0("Download <a href='/", confFile, "'>confirmation information</a>."))
+			HTML(paste0("Download <a href='http://glimmer.rstudio.com/lcolladotor/MPHcapstoneTA/", confFile, "'>confirmation information</a>."))
 		} else{
 			HTML("")	
 		}
