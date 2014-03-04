@@ -279,7 +279,7 @@ calendarBuild <- function(file, reservations, public=TRUE) {
 
 
 ## Build email msg
-buildEmail <- function(new, action="confirm", verbose=TRUE) {
+buildEmail <- function(new, action="confirm", verbose=TRUE, email=TRUE) {
 	tentative <- ifelse(action == "confirm", "*confirmed* ", "*cancelled* ")
 	msg <- buildMsg(new, tentative)
 	
@@ -292,7 +292,12 @@ buildEmail <- function(new, action="confirm", verbose=TRUE) {
 		msgStudent <- paste0(msg, "\n\n Hopefully everything is ok. Please try to minimize as much as the number of times you have to cancel a TA office hour reservation.")
 	}
 	
-	msg <- paste0("Reservation details\n-------------------------------\n\n", msg, "\n\n-------------------------------\nPlease do not reply to this email address as no one is checking it.")
+	if(email) {
+		msg <- paste0("Reservation details\n-------------------------------\n\n", msg, "\n\n-------------------------------\nPlease do not reply to this email address as no one is checking it.")
+	} else {
+		msg <- paste0("Reservation details\n-------------------------------\n\n", msg, "\n\n-------------------------------\n\n")
+	}
+	
 	# msgStudent <- paste0(msgStudent, "\n\n-------------------------------\nPlease do not reply to this email address as no one is checking it.")
 	
 	## Send emails
@@ -460,12 +465,12 @@ shinyServer(function(input, output, session) {
 		check <- checkEntry(new, reservations, verbose=FALSE)
 		if(input$reserve %in% c("Cancellation registered", "Reservation submitted")) {
 			if(check == "Can cancel") {
-				emailInfo <- buildEmail(new, "cancel", verbose=FALSE)
+				emailInfo <- buildEmail(new, "cancel", verbose=FALSE, email=FALSE)
 			} else if(check == "Complete") {
-				emailInfo <- buildEmail(new, "confirm", verbose=FALSE)
+				emailInfo <- buildEmail(new, "confirm", verbose=FALSE, email=FALSE)
 			}
 			## Create link to message for students to download
-			confFile <- paste0("messages/", as.character(Sys.time()), "-", as.character(round(runif(1, 1e14, 1e15 - 1), 0)), ".txt")
+			confFile <- paste0("messages/", as.character(as.Date(Sys.time())), "-", as.character(round(runif(1, 1e14, 1e15 - 1), 0)), ".txt")
 			sink(paste0("www/", confFile))
 			cat(emailInfo$msg)
 			sink()
