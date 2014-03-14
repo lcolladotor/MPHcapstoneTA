@@ -8,10 +8,10 @@ load("taemails.Rdata")
 
 ## Options
 TAchoices <- list(
-	"Monday" = c("Choose a TA", "Amy Paul" = "Amy", "Therri Usher" = "Therri"),
+	"Monday" = c("Choose a TA", "Kevin Fain" = "Kevin", "Amy Paul" = "Amy", "Therri Usher" = "Therri"),
 	"Tuesday" = c("Choose a TA", "Megan Clayton" = "Megan", "Kevin Fain" = "Kevin", "Amy Paul" = "Amy", "Molly Simmons" = "Molly"),
-	"Wednesday" = c("Choose a TA", "Megan Clayton" = "Megan", "Leonardo Collado Torres" = "Leo", "Kevin Fain" = "Kevin"),
-	"Thursday" = c("Choose a TA", "Therri Usher" = "Therri"),
+	"Wednesday" = c("Choose a TA", "Megan Clayton" = "Megan", "Leonardo Collado Torres" = "Leo", "Therri Usher" = "Therri"),
+	"Thursday" = c("Choose a TA"),
 	"Friday" = c("Choose a TA", "Leonardo Collado Torres" = "Leo")
 )
 

@@ -27,7 +27,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: qualitative research, social and behavioral sciences, and food systems"),
 			tags$hr(),
-			HTML("Available: Tuesdays & Wednesdays")
+			HTML("Available: Tuesdays & Wednesdays -- Spring break: available!")
 		),
 
 		## TA: Leo
@@ -37,7 +37,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: biostatistics, genomics"),
 			tags$hr(),
-			HTML("Available: Wednesdays & Fridays")
+			HTML("Available: Wednesdays & Fridays -- Spring break: unavailable")
 		),
 
 		## TA: Kevin
@@ -47,7 +47,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: epidemiology, environmental health & risk assessment, and health & regulatory policy"),
 			tags$hr(),
-			HTML("Available: Tuesdays & Wednesdays")
+			HTML("Available: Mondays & Tuesdays -- Spring break: unavailable")
 		),
 
 		## TA: Amy
@@ -57,7 +57,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: bioethics, health policy, qualitative research, and global health"),
 			tags$hr(),
-			HTML("Available: Mondays & Tuesdays")
+			HTML("Available: Mondays & Tuesdays -- Spring break: available!")
 		),
 
 		## TA: Molly
@@ -67,7 +67,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: health policy, qualitative research, mental health, injury prevention & research, and political analysis"),
 			tags$hr(),
-			HTML("Available: Tuesdays")
+			HTML("Available: Tuesdays -- Spring break: unavailable")
 		),
 
 		## TA: Therri
@@ -77,7 +77,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: biostatistics, health disparities, and aging"),
 			tags$hr(),
-			HTML("Available: Mondays & Thursdays")
+			HTML("Available: Mondays & Wednesdays -- Spring break: unavailable")
 		),
 		
 		## Office hour
