@@ -31,9 +31,9 @@ TAhour <- list(
 		"Friday" =c("12:45-13:15", "13:15-13:45", "13:45-14:15", "14:15-14:45")
 	),
 	"Kevin" = list(
-		"Monday" = "00:00",
-		"Tuesday" = c("13:30-14:00", "14:00-14:30", "14:30-15:00", "15:00-15:30"),
-		"Wednesday" = c("16:00-16:30", "16:30-17:00", "17:00-17:30", "17:30-18:00"),
+		"Monday" = c("13:30-14:00", "14:00-14:30", "14:30-15:00", "15:00-15:30"),
+		"Tuesday" = c("15:00-15:30", "15:30-16:00", "16:00-16:30", "16:30-17:00"),
+		"Wednesday" = "00:00",
 		"Thursday" = "00:00",
 		"Friday" = "00:00"
 	),
@@ -54,8 +54,8 @@ TAhour <- list(
 	"Therri" = list(
 		"Monday" = c("13:15-13:45", "13:45-14:15", "14:15-14:45", "14:45-15:15"),
 		"Tuesday" = "00:00",
-		"Wednesday" = "00:00",
-		"Thursday" = c("13:15-13:45", "13:45-14:15", "14:15-14:45", "14:45-15:15"),
+		"Wednesday" = c("12:15-12:45", "12:45-13:15", "13:15-13:45", "13:45-14:15"),
+		"Thursday" = "00:00",
 		"Friday" = "00:00"
 	),
 	"Choose a TA" = list("Monday" = "00:00", "Tuesday" = "00:00", "Wednesday" = "00:00", "Thursday" = "00:00", "Friday" = "00:00")
@@ -74,7 +74,9 @@ TAroom <- list(
 		"2014-03-04" = "Wolfe Building W2207",
 		"2014-03-05" = "Wolfe Building W2207",
 		"2014-03-11" = "Wolfe Building W2207",
-		"2014-03-12" = "Wolfe Building W2207"
+		"2014-03-12" = "Wolfe Building W2207",
+		"2014-03-18" = "Wolfe Building W2207",
+		"2014-03-19" = "Wolfe Building W2207"
 	),
 	"Leo" = list(
 		"2014-01-31" = "Wolfe Building W2303",
@@ -117,7 +119,9 @@ TAroom <- list(
 		"2014-03-03" = "Wolfe Building W2300",
 		"2014-03-04" = "Wolfe Building W4007",
 		"2014-03-10" = "Wolfe Building W2300",
-		"2014-03-11" = "Wolfe Building W4007"
+		"2014-03-11" = "Wolfe Building W4007",
+		"2014-03-17" = "Wolfe Building W4007",
+		"2014-03-18" = "Wolfe Building W4007"
 	),
 	"Therri" = list(
 		"2014-02-03" = "Wolfe Building W2033",
@@ -490,6 +494,14 @@ shinyServer(function(input, output, session) {
 	## Update office hour options
 	observe({
 		choices <- TAhour[[input$ta]][[input$weekday]]
+		## Special cases for Spring Break
+		if(input$ta %in% c("Kevin", "Leo", "Molly", "Therri")) {
+			new <- newEntry()
+			if( as.character(as.Date(new$desiredDate, tz="America/New_York")) %in% c("2014-03-15", "2014-03-16", "2014-03-17", "2014-03-18", "2014-03-19", "2014-03-20", "2014-03-21", "2014-03-22", "2014-03-23")) {
+			choices <- c("00:00")
+			}
+		}
+
 		updateSelectInput(session, "hour", choices=choices)
 	})
 	

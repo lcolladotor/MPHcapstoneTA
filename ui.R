@@ -151,23 +151,23 @@ shinyUI(pageWithSidebar(
 				helpText("Note that the calendar has a very slow refresh rate due to how Google Calendar works.")
 			),			
 			tabPanel("TA info",
-				h4("Megan Clayton"),
+				h4("Megan Clayton -- Available during spring break!"),
 				tags$p("Tuesdays & Wednesdays 9:00-11:00am"),
-				helpText("Areas of focus: qualitative research, social and behavioral sciences, and food systems"),
+				helpText("Areas of focus: qualitative research, social and behavioral sciences, and food systems"),				
 				h4("Leonardo Collado Torres"),
 				tags$p("Wednesdays & Fridays 12:45-2:45pm"),
 				helpText("Areas of focus: biostatistics, genomics"),
 				h4("Kevin Fain"),
-				tags$p("Tuesdays 1:30-3:30pm & Wednesdays 4:00-6:00pm"),
+				tags$p("Mondays 1:30-3:30pm & Tuesdays 3:00-5:00pm"),
 				helpText("Areas of focus: epidemiology, environmental health & risk assessment, and health & regulatory policy"),
-				h4("Amy Paul"),
+				h4("Amy Paul -- Available during spring break!"),
 				tags$p("Mondays 10am-12pm & Tuesdays 11am-1pm"),
-				helpText("Areas of focus: bioethics, health policy, qualitative research, and global health"),
+				helpText("Areas of focus: bioethics, health policy, qualitative research, and global health"),				
 				h4("Molly Simmons"),
 				tags$p("Tuesdays 11am-3pm"),
 				helpText("Areas of focus: health policy, qualitative research, mental health, injury prevention & research, and political analysis"),
 				h4("Therri Usher"),
-				tags$p("Mondays & Thursdays 1:15-3:15pm"),
+				tags$p("Mondays 1:15-3:15pm & Wednesdays 12:15-2:15pm"),
 				helpText("Areas of focus: biostatistics, health disparities, and aging"),
 				tags$hr()
 			),
@@ -247,7 +247,7 @@ shinyUI(pageWithSidebar(
 				HTML("Powered by <a href='http://www.rstudio.com/shiny/'>Shiny</a> and hosted by <a href='http://www.rstudio.com/'>RStudio</a>."),
 				tags$hr(),
 				HTML("Developed by <a href='http://bit.ly/LColladoTorres'>L. Collado Torres</a>."),
-				HTML("Version 0.0.3. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
+				HTML("Version 0.0.4. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
 				tags$hr()
 			)
 			
