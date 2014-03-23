@@ -424,7 +424,7 @@ shinyServer(function(input, output, session) {
 				save(reservations, file="reservations.Rdata")
 							
 				## Finish
-				updateSelectInput(session, "reserve", choices=c("Cancellation registered"))
+				updateSelectInput(session, "reserve", choices="Cancellation registered", selected="Cancellation registered")
 			}			
 			cat("\n\nYou have successfully cancelled your reservation. You can verify this on the 'Current reservations' tab: your reservation will no longer appear on the current slots taken.")
 			
@@ -455,7 +455,7 @@ shinyServer(function(input, output, session) {
 				save(reservations, file="reservations.Rdata")
 			
 				## Finish
-				updateSelectInput(session, "reserve", choices=c("Reservation submitted"))
+				updateSelectInput(session, "reserve", choices="Reservation submitted", selected="Reservation submitted")
 			}	
 			cat("\n\nYou have successfully completed your office hour reservation. You can verify this on the 'Current reservations' tab: your reservation will appear on the current slots taken.")
 		}
