@@ -488,7 +488,7 @@ shinyServer(function(input, output, session) {
 	## Update TA options
 	observe({
 		choices <- TAchoices[[input$weekday]]
-		updateSelectInput(session, "ta", choices=choices)
+		updateSelectInput(session, "ta", choices=choices, selected=choices[[1]][1])
 	})
 	
 	## Update office hour options
@@ -502,7 +502,7 @@ shinyServer(function(input, output, session) {
 			}
 		}
 
-		updateSelectInput(session, "hour", choices=choices)
+		updateSelectInput(session, "hour", choices=choices, selected=choices[1])
 	})
 	
 	## View recent details
