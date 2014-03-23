@@ -27,7 +27,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: qualitative research, social and behavioral sciences, and food systems"),
 			tags$hr(),
-			HTML("Available: Tuesdays & Wednesdays -- Spring break: available!")
+			HTML("Available: Tuesdays & Wednesdays")
 		),
 
 		## TA: Leo
@@ -37,7 +37,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: biostatistics, genomics"),
 			tags$hr(),
-			HTML("Available: Wednesdays & Fridays -- Spring break: unavailable")
+			HTML("Available: Wednesdays & Fridays")
 		),
 
 		## TA: Kevin
@@ -47,7 +47,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: epidemiology, environmental health & risk assessment, and health & regulatory policy"),
 			tags$hr(),
-			HTML("Available: Mondays & Tuesdays -- Spring break: unavailable")
+			HTML("Available: Mondays & Tuesdays")
 		),
 
 		## TA: Amy
@@ -57,7 +57,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: bioethics, health policy, qualitative research, and global health"),
 			tags$hr(),
-			HTML("Available: Mondays & Tuesdays -- Spring break: available!")
+			HTML("Available: Mondays & Tuesdays")
 		),
 
 		## TA: Molly
@@ -67,7 +67,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: health policy, qualitative research, mental health, injury prevention & research, and political analysis"),
 			tags$hr(),
-			HTML("Available: Tuesdays -- Spring break: unavailable")
+			HTML("Available: Tuesdays")
 		),
 
 		## TA: Therri
@@ -77,7 +77,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: biostatistics, health disparities, and aging"),
 			tags$hr(),
-			HTML("Available: Mondays & Wednesdays -- Spring break: unavailable")
+			HTML("Available: Mondays & Wednesdays")
 		),
 		
 		## Office hour
@@ -151,7 +151,7 @@ shinyUI(pageWithSidebar(
 				helpText("Note that the calendar has a very slow refresh rate due to how Google Calendar works.")
 			),			
 			tabPanel("TA info",
-				h4("Megan Clayton -- Available during spring break!"),
+				h4("Megan Clayton"),
 				tags$p("Tuesdays & Wednesdays 9:00-11:00am"),
 				helpText("Areas of focus: qualitative research, social and behavioral sciences, and food systems"),				
 				h4("Leonardo Collado Torres"),
@@ -160,7 +160,7 @@ shinyUI(pageWithSidebar(
 				h4("Kevin Fain"),
 				tags$p("Mondays 1:30-3:30pm & Tuesdays 3:00-5:00pm"),
 				helpText("Areas of focus: epidemiology, environmental health & risk assessment, and health & regulatory policy"),
-				h4("Amy Paul -- Available during spring break!"),
+				h4("Amy Paul"),
 				tags$p("Mondays 10am-12pm & Tuesdays 11am-1pm"),
 				helpText("Areas of focus: bioethics, health policy, qualitative research, and global health"),				
 				h4("Molly Simmons"),
@@ -247,7 +247,7 @@ shinyUI(pageWithSidebar(
 				HTML("Powered by <a href='http://www.rstudio.com/shiny/'>Shiny</a> and hosted by <a href='http://www.rstudio.com/'>RStudio</a>."),
 				tags$hr(),
 				HTML("Developed by <a href='http://bit.ly/LColladoTorres'>L. Collado Torres</a>."),
-				HTML("Version 0.0.4. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
+				HTML("Version 0.0.5. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
 				tags$hr()
 			)
 			

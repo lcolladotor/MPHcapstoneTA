@@ -495,12 +495,12 @@ shinyServer(function(input, output, session) {
 	observe({
 		choices <- TAhour[[input$ta]][[input$weekday]]
 		## Special cases for Spring Break
-		if(input$ta %in% c("Kevin", "Leo", "Molly", "Therri")) {
-			new <- newEntry()
-			if( as.character(as.Date(new$desiredDate, tz="America/New_York")) %in% c("2014-03-15", "2014-03-16", "2014-03-17", "2014-03-18", "2014-03-19", "2014-03-20", "2014-03-21", "2014-03-22", "2014-03-23")) {
-			choices <- c("00:00")
-			}
-		}
+#		if(input$ta %in% c("Kevin", "Leo", "Molly", "Therri")) {
+#			new <- newEntry()
+#			if( as.character(as.Date(new$desiredDate, tz="America/New_York")) %in% c("2014-03-15", "2014-03-16", "2014-03-17", "2014-03-18", "2014-03-19", "2014-03-20", "2014-03-21", "2014-03-22", "2014-03-23")) {
+#			choices <- c("00:00")
+#			}
+#		}
 
 		updateSelectInput(session, "hour", choices=choices, selected=choices[1])
 	})
