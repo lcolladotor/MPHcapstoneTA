@@ -124,11 +124,14 @@ shinyUI(pageWithSidebar(
 		tabsetPanel(
 			## TA assigned calendar
 			tabPanel("Reservation details",
+				h4("TA hours report"),
+				HTML("We invite you to read the <a href='http://lcolladotor.github.io/mphtasessions/'>TA hours report</a>. Enjoy it!"),
 				h4("Important rules!"),
 				tags$b("You may only have one active reservation at any given time!"),
 				tags$p("This ensures that all students have an equal and fair opportunity to sign up for TA sessions and get help, advice, and feedback on their projects."),
-				helpText("You need to reschedule? Then please cancel your active reservation before making a second one. Remember that the confirmation message contains all the information you will need to cancel the reservation."),
+				helpText("You need to reschedule? Then please cancel your active reservation before making a second one. Remember that the confirmation message contains all the information you will need to cancel the reservation: the message is specially useful to detect typos that might be stopping you from verifying your identity."),
 				h4("Your *tentative* entry"),
+				helpText("Please remember to verify the date of your TA session before confirming your reservation!"),
 				verbatimTextOutput('yourEntry'),
 				h4("Check Entry"),
 				verbatimTextOutput('checkEntry'),
@@ -247,7 +250,7 @@ shinyUI(pageWithSidebar(
 				HTML("Powered by <a href='http://www.rstudio.com/shiny/'>Shiny</a> and hosted by <a href='http://www.rstudio.com/'>RStudio</a>."),
 				tags$hr(),
 				HTML("Developed by <a href='http://bit.ly/LColladoTorres'>L. Collado Torres</a>."),
-				HTML("Version 0.0.6. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
+				HTML("Version 0.0.7. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
 				tags$hr()
 			)
 			
