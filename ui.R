@@ -127,7 +127,7 @@ shinyUI(pageWithSidebar(
 				h4("Important rules!"),
 				tags$b("You may only have one active reservation at any given time!"),
 				tags$p("This ensures that all students have an equal and fair opportunity to sign up for TA sessions and get help, advice, and feedback on their projects."),
-				helpText("You need to reschedule? Then please cancel your active reservation before making a second one."),
+				helpText("You need to reschedule? Then please cancel your active reservation before making a second one. Remember that the confirmation message contains all the information you will need to cancel the reservation."),
 				h4("Your *tentative* entry"),
 				verbatimTextOutput('yourEntry'),
 				h4("Check Entry"),
@@ -247,7 +247,7 @@ shinyUI(pageWithSidebar(
 				HTML("Powered by <a href='http://www.rstudio.com/shiny/'>Shiny</a> and hosted by <a href='http://www.rstudio.com/'>RStudio</a>."),
 				tags$hr(),
 				HTML("Developed by <a href='http://bit.ly/LColladoTorres'>L. Collado Torres</a>."),
-				HTML("Version 0.0.5. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
+				HTML("Version 0.0.6. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
 				tags$hr()
 			)
 			

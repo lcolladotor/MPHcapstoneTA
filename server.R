@@ -76,7 +76,19 @@ TAroom <- list(
 		"2014-03-11" = "Wolfe Building W2207",
 		"2014-03-12" = "Wolfe Building W2207",
 		"2014-03-18" = "Wolfe Building W2207",
-		"2014-03-19" = "Wolfe Building W2207"
+		"2014-03-19" = "Wolfe Building W2207",
+		"2014-03-25" = "Wolfe Building W2207",
+		"2014-03-26" = "Wolfe Building W2207",
+		"2014-04-01" = "Wolfe Building W2207",
+		"2014-04-02" = "Wolfe Building W2207",
+		"2014-04-08" = "Wolfe Building W2207",
+		"2014-04-09" = "Wolfe Building W2207",
+		"2014-04-15" = "Wolfe Building W2207",
+		"2014-04-16" = "Wolfe Building W2207",
+		"2014-04-22" = "Wolfe Building W2207",
+		"2014-04-23" = "Wolfe Building W2207",
+		"2014-04-29" = "Wolfe Building W2207",
+		"2014-04-30" = "Wolfe Building W2207"
 	),
 	"Leo" = list(
 		"2014-01-31" = "Wolfe Building W2303",
@@ -91,7 +103,19 @@ TAroom <- list(
 		"2014-03-05" = "Wolfe Building E4130",
 		"2014-03-07" = "Wolfe Building W2205",
 		"2014-03-12" = "Wolfe Building E4130",
-		"2014-03-14" = "Wolfe Building W2205"
+		"2014-03-14" = "Wolfe Building W2205",
+		"2014-03-26" = "Wolfe Building W2015",
+		"2014-03-28" = "Wolfe Building W2303",
+		"2014-04-02" = "Wolfe Building W2009",
+		"2014-04-04" = "Wolfe Building W4019",
+		"2014-04-09" = "Wolfe Building W2015",
+		"2014-04-11" = "Wolfe Building W2009",
+		"2014-04-16" = "Wolfe Building W2009",
+		"2014-04-18" = "Wolfe Building W2009",
+		"2014-04-23" = "Wolfe Building W2009",
+		"2014-04-25" = "Wolfe Building W2009",
+		"2014-04-30" = "Wolfe Building W2009",
+		"2014-05-02" = "Wolfe Building W2009"
 	),
 	"Kevin" = list(
 		"2014-02-04" = "Wolfe Building W2205",
@@ -105,7 +129,19 @@ TAroom <- list(
 		"2014-03-04" = "Wolfe Building W2205",
 		"2014-03-05" = "Wolfe Building W2207",
 		"2014-03-11" = "Wolfe Building E6130",
-		"2014-03-12" = "Wolfe Building W2207"
+		"2014-03-12" = "Wolfe Building W2207",
+		"2014-03-24" = "Wolfe Building E2133",
+		"2014-03-25" = "Wolfe Building W4007",
+		"2014-03-31" = "Wolfe Building E2133",
+		"2014-04-01" = "Wolfe Building W4007",
+		"2014-04-07" = "Wolfe Building W2205",
+		"2014-04-08" = "Wolfe Building W4007",
+		"2014-04-14" = "Wolfe Building E2133",
+		"2014-04-15" = "Wolfe Building W4007",
+		"2014-04-21" = "Wolfe Building E2133",
+		"2014-04-22" = "Wolfe Building W4007",
+		"2014-04-28" = "Wolfe Building E2133",
+		"2014-04-29" = "Wolfe Building W4007"
 	),
 	"Amy" = list(
 		"2014-02-03" = "Wolfe Building W2300",
@@ -121,7 +157,19 @@ TAroom <- list(
 		"2014-03-10" = "Wolfe Building W2300",
 		"2014-03-11" = "Wolfe Building W4007",
 		"2014-03-17" = "Wolfe Building W4007",
-		"2014-03-18" = "Wolfe Building W4007"
+		"2014-03-18" = "Wolfe Building W4007",
+		"2014-03-24" = "Wolfe Building W2033",
+		"2014-03-25" = "Wolfe Building W2009",
+		"2014-03-31" = "Wolfe Building W2033",
+		"2014-04-01" = "Wolfe Building W2009",
+		"2014-04-07" = "Wolfe Building W2033",
+		"2014-04-08" = "Wolfe Building W2009",
+		"2014-04-14" = "Wolfe Building W2033",
+		"2014-04-15" = "Wolfe Building W2009",
+		"2014-04-21" = "Wolfe Building W2033",
+		"2014-04-22" = "Wolfe Building W2009",
+		"2014-04-28" = "Wolfe Building W2033",
+		"2014-04-29" = "Wolfe Building W2009"
 	),
 	"Therri" = list(
 		"2014-02-03" = "Wolfe Building W2033",
@@ -135,7 +183,19 @@ TAroom <- list(
 		"2014-03-03" = "Wolfe Building W2207",
 		"2014-03-06" = "Wolfe Building W2303",
 		"2014-03-10" = "Wolfe Building W2207",
-		"2014-03-13" = "Wolfe Building W2303"
+		"2014-03-13" = "Wolfe Building W2303",
+		"2014-03-24" = "Wolfe Building W2029",
+		"2014-03-26" = "Wolfe Building W2205",
+		"2014-03-31" = "Wolfe Building W2205",
+		"2014-04-02" = "Wolfe Building W2205",
+		"2014-04-07" = "Wolfe Building W2029",
+		"2014-04-09" = "Wolfe Building W2009",
+		"2014-04-14" = "Wolfe Building W2205",
+		"2014-04-16" = "Wolfe Building W2205",
+		"2014-04-21" = "Wolfe Building W2205",
+		"2014-04-23" = "Wolfe Building W2205",
+		"2014-04-28" = "Wolfe Building W2205",
+		"2014-04-30" = "Wolfe Building W2205"
 	)
 )
 
