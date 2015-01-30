@@ -4,7 +4,7 @@ source("server.R")
 ## Specify layout
 shinyUI(pageWithSidebar(
 	
-	headerPanel(HTML("MPH capstone TA office hours - 2014 version")),
+	headerPanel(HTML("MPH capstone TA office hours - 2015 version")),
 	
 	
 	sidebarPanel(
@@ -17,17 +17,17 @@ shinyUI(pageWithSidebar(
 		selectInput("weekday", "Weekday", c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")),	
 		
 		## Choose TA
-		selectInput("ta", "TA", c("Choose a TA", "Megan Clayton" = "Megan", "Leonardo Collado Torres" = "Leo", "Kevin Fain" = "Kevin", "Amy Paul" = "Amy", "Molly Simmons" = "Molly", "Therri Usher" = "Therri")),
+		selectInput("ta", "TA", c("Choose a TA", "Youssef Farag" = "Youssef", "Danielle Edwards" = "Danielle", "Molly Lasater" = "Molly", "Leonardo Collado Torres" = "Leo")),
 		
 		#### TA info
-		## TA: Megan
+		## TA: Youssef
 		conditionalPanel(
-			condition = "input.ta == 'Megan'",
+			condition = "input.ta == 'Youssef'",
 	
 			## Area of focus
-			helpText("Areas of focus: qualitative research, social and behavioral sciences, and food systems"),
+			helpText("Areas of focus: epidemiology (methods, non-communicable diseases, cancer, environmental epidemiology), NHANES and survey data analysis, global health"),
 			tags$hr(),
-			HTML("Available: Tuesdays & Wednesdays")
+			HTML("Available: Mondays & Thursdays")
 		),
 
 		## TA: Leo
@@ -37,25 +37,15 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: biostatistics, genomics"),
 			tags$hr(),
-			HTML("Available: Wednesdays & Fridays")
+			HTML("Available: Tuesdays & Fridays")
 		),
 
-		## TA: Kevin
+		## TA: Danielle
 		conditionalPanel(
-			condition = "input.ta == 'Kevin'",
+			condition = "input.ta == 'Danielle'",
 	
 			## Area of focus
-			helpText("Areas of focus: epidemiology, environmental health & risk assessment, and health & regulatory policy"),
-			tags$hr(),
-			HTML("Available: Mondays & Tuesdays")
-		),
-
-		## TA: Amy
-		conditionalPanel(
-			condition = "input.ta == 'Amy'",
-	
-			## Area of focus
-			helpText("Areas of focus: bioethics, health policy, qualitative research, and global health"),
+			helpText("Areas of focus: bioethics, health policy, law. Note Mondays 8-9pm slots are Skype only."),
 			tags$hr(),
 			HTML("Available: Mondays & Tuesdays")
 		),
@@ -65,19 +55,9 @@ shinyUI(pageWithSidebar(
 			condition = "input.ta == 'Molly'",
 	
 			## Area of focus
-			helpText("Areas of focus: health policy, qualitative research, mental health, injury prevention & research, and political analysis"),
+			helpText("Areas of focus: international health, qualitative research, social & behavioral sciences"),
 			tags$hr(),
-			HTML("Available: Tuesdays")
-		),
-
-		## TA: Therri
-		conditionalPanel(
-			condition = "input.ta == 'Therri'",
-	
-			## Area of focus
-			helpText("Areas of focus: biostatistics, health disparities, and aging"),
-			tags$hr(),
-			HTML("Available: Mondays & Wednesdays")
+			HTML("Available: Mondays & Tuesdays")
 		),
 		
 		## Office hour
@@ -125,7 +105,7 @@ shinyUI(pageWithSidebar(
 			## TA assigned calendar
 			tabPanel("Reservation details",
 				h4("TA hours report"),
-				HTML("We invite you to read the <a href='http://lcolladotor.github.io/mphtasessions/'>TA hours report</a>. Enjoy it!"),
+				HTML("We invite you to read the <a href='http://lcolladotor.github.io/mphtasessions/'>TA hours report (2014 data)</a>. Enjoy it!"),
 				h4("Important rules!"),
 				tags$b("You may only have one active reservation at any given time!"),
 				tags$p("This ensures that all students have an equal and fair opportunity to sign up for TA sessions and get help, advice, and feedback on their projects."),
@@ -153,25 +133,19 @@ shinyUI(pageWithSidebar(
 				HTML("<iframe src='https://www.google.com/calendar/embed?title=TA%20public%20calendar&amp;showCalendars=0&amp;mode=AGENDA&amp;height=300&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=pdqn6hl8fgjh2antqkgreo886j6j8oo3%40import.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York' style=' border-width:0 ' width='600' height='300' frameborder='0' scrolling='no'></iframe>"),
 				helpText("Note that the calendar has a very slow refresh rate due to how Google Calendar works.")
 			),			
-			tabPanel("TA info",
-				h4("Megan Clayton"),
-				tags$p("Tuesdays & Wednesdays 9:00-11:00am"),
-				helpText("Areas of focus: qualitative research, social and behavioral sciences, and food systems"),				
+			tabPanel("TA info",				
 				h4("Leonardo Collado Torres"),
-				tags$p("Wednesdays & Fridays 12:45-2:45pm"),
+				tags$p("Tuesdays & Fridays 1-3pm"),
 				helpText("Areas of focus: biostatistics, genomics"),
-				h4("Kevin Fain"),
-				tags$p("Mondays 1:30-3:30pm & Tuesdays 3:00-5:00pm"),
-				helpText("Areas of focus: epidemiology, environmental health & risk assessment, and health & regulatory policy"),
-				h4("Amy Paul"),
-				tags$p("Mondays 10am-12pm & Tuesdays 11am-1pm"),
-				helpText("Areas of focus: bioethics, health policy, qualitative research, and global health"),				
-				h4("Molly Simmons"),
-				tags$p("Tuesdays 11am-3pm"),
-				helpText("Areas of focus: health policy, qualitative research, mental health, injury prevention & research, and political analysis"),
-				h4("Therri Usher"),
-				tags$p("Mondays 1:15-3:15pm & Wednesdays 12:15-2:15pm"),
-				helpText("Areas of focus: biostatistics, health disparities, and aging"),
+				h4("Youssef Farag"),
+				tags$p("Mondays & Thursdays 4-6pm"),
+				helpText("Areas of focus: epidemiology (methods, non-communicable diseases, cancer, environmental epidemiology), NHANES and survey data analysis, global health"),
+				h4("Danielle Edwards"),
+				tags$p("Mondays 1:30–3pm, Tuesdays 3-4:30 pm, and Mondays 8–9 pm (via Skype)"),
+				helpText("Areas of focus: bioethics, health policy, law"),				
+				h4("Molly Lasater"),
+				tags$p("Mondays 8:30-10:30 am, Tuesdays 12-2pm"),
+				helpText("Areas of focus: international health, qualitative research, social & behavioral sciences"),
 				tags$hr()
 			),
 			tabPanel("Instructions (Help)",
@@ -234,7 +208,7 @@ shinyUI(pageWithSidebar(
 				dataTableOutput("recent"),
 				helpText("Requires password to display the information."),
 				h4("Download calendar"),
-				selectInput("taname", "Select a TA", c("All", "Megan", "Leo", "Kevin", "Amy", "Molly", "Therri")),
+				selectInput("taname", "Select a TA", c("All", "Youssef", "Leo", "Danielle", "Molly")),
 				helpText("If you selected a TA, only the events for that TA will appear in the calendar."),
 				downloadButton('calendar', 'Download'),
 				helpText("TA password is required."),
@@ -250,7 +224,7 @@ shinyUI(pageWithSidebar(
 				HTML("Powered by <a href='http://www.rstudio.com/shiny/'>Shiny</a> and hosted by <a href='http://www.rstudio.com/'>RStudio</a>."),
 				tags$hr(),
 				HTML("Developed by <a href='http://bit.ly/LColladoTorres'>L. Collado Torres</a>."),
-				HTML("Version 0.0.7. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
+				HTML("Version 0.0.8. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
 				tags$hr()
 			)
 			

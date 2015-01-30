@@ -1,212 +1,58 @@
 ## Setup
 library("shiny")
-library("sendmailR")
+#library("sendmailR")
+library(mail)
 
 ## Load data
 load("tapass.Rdata")
 load("taemails.Rdata")
+load("TAroom.Rdata")
 
 ## Options
 TAchoices <- list(
-	"Monday" = c("Choose a TA", "Kevin Fain" = "Kevin", "Amy Paul" = "Amy", "Therri Usher" = "Therri"),
-	"Tuesday" = c("Choose a TA", "Megan Clayton" = "Megan", "Kevin Fain" = "Kevin", "Amy Paul" = "Amy", "Molly Simmons" = "Molly"),
-	"Wednesday" = c("Choose a TA", "Megan Clayton" = "Megan", "Leonardo Collado Torres" = "Leo", "Therri Usher" = "Therri"),
-	"Thursday" = c("Choose a TA"),
+	"Monday" = c("Choose a TA", "Youssef Farag" = "Youssef", "Danielle Edwards" = "Danielle", "Molly Lasater" = "Molly"),
+	"Tuesday" = c("Choose a TA", "Leonardo Collado Torres" = "Leo", "Danielle Edwards" = "Danielle", "Molly Lasater" = "Molly"),
+	"Wednesday" = c("Choose a TA"),
+	"Thursday" = c("Choose a TA", "Youssef Farag" = "Youssef"),
 	"Friday" = c("Choose a TA", "Leonardo Collado Torres" = "Leo")
 )
 
 TAhour <- list(
-	"Megan" = list(
-		"Monday" = "00:00",
-		"Tuesday" = c("09:00-09:30", "09:30-10:00", "10:00-10:30", "10:30-11:00"),
-		"Wednesday" = c("09:00-09:30", "09:30-10:00", "10:00-10:30", "10:30-11:00"),
-		"Thursday" = "00:00",
+	"Youssef" = list(
+		"Monday" = c("16:00-16:30", "16:30-17:00", "17:00-17:30", "17:30-18:00"),
+		"Tuesday" = "00:00",
+		"Wednesday" = "00:00",
+		"Thursday" = c("16:00-16:30", "16:30-17:00", "17:00-17:30", "17:30-18:00"),
 		"Friday" = "00:00"
 	),
 	"Leo" = list(
 		"Monday" = "00:00",
-		"Tuesday" = "00:00",
-		"Wednesday" = c("12:45-13:15", "13:15-13:45", "13:45-14:15", "14:15-14:45"),
-		"Thursday" = "00:00",
-		"Friday" =c("12:45-13:15", "13:15-13:45", "13:45-14:15", "14:15-14:45")
-	),
-	"Kevin" = list(
-		"Monday" = c("13:30-14:00", "14:00-14:30", "14:30-15:00", "15:00-15:30"),
-		"Tuesday" = c("15:00-15:30", "15:30-16:00", "16:00-16:30", "16:30-17:00"),
+		"Tuesday" = c("13:00-13:30", "13:30-14:00", "14:00-14:30", "14:30-15:00"),
 		"Wednesday" = "00:00",
 		"Thursday" = "00:00",
-		"Friday" = "00:00"
+		"Friday" = c("13:00-13:30", "13:30-14:00", "14:00-14:30", "14:30-15:00")
 	),
-	"Amy" = list(
-		"Monday" = c("10:00-10:30", "10:30-11:00", "11:00-11:30", "11:30-12:00"),
-		"Tuesday" = c("11:00-11:30", "11:30-12:00", "12:00-12:30", "12:30-13:00"),
+	"Danielle" = list(
+		"Monday" = c("13:30-14:00", "14:00-14:30", "14:30-15:00", "20:00-20:30", "20:30-21:00"),
+		"Tuesday" = c("15:00-15:30", "15:30-16:00", "16:00-16:30"),
 		"Wednesday" = "00:00",
 		"Thursday" = "00:00",
 		"Friday" = "00:00"
 	),
 	"Molly" = list(
-		"Monday" = "00:00",
-		"Tuesday" = c("11:00-11:30", "11:30-12:00", "12:00-12:30", "12:30-13:00", "13:00-13:30", "13:30-14:00", "14:00-14:30", "14:30-15:00"),
+		"Monday" = c("08:30-09:00", "09:00-09:30", "09:30-10:00", "10:00-10:30"),
+		"Tuesday" = c("12:00-12:30", "12:30-13:00", "13:00-13:30", "13:30-14:00"),
 		"Wednesday" = "00:00",
-		"Thursday" = "00:00",
-		"Friday" = "00:00"
-	),
-	"Therri" = list(
-		"Monday" = c("13:15-13:45", "13:45-14:15", "14:15-14:45", "14:45-15:15"),
-		"Tuesday" = "00:00",
-		"Wednesday" = c("12:15-12:45", "12:45-13:15", "13:15-13:45", "13:45-14:15"),
 		"Thursday" = "00:00",
 		"Friday" = "00:00"
 	),
 	"Choose a TA" = list("Monday" = "00:00", "Tuesday" = "00:00", "Wednesday" = "00:00", "Thursday" = "00:00", "Friday" = "00:00")
 )
 
-TAroom <- list(
-	"Megan" = list(
-		"2014-02-04" = "Wolfe Building W2207",
-		"2014-02-05" = "Wolfe Building W2207",
-		"2014-02-11" = "Wolfe Building W2207",
-		"2014-02-12" = "Wolfe Building W2207",
-		"2014-02-18" = "Wolfe Building W2207",
-		"2014-02-19" = "Wolfe Building W2207",
-		"2014-02-25" = "Wolfe Building W2207",
-		"2014-02-26" = "Wolfe Building W2207",
-		"2014-03-04" = "Wolfe Building W2207",
-		"2014-03-05" = "Wolfe Building W2207",
-		"2014-03-11" = "Wolfe Building W2207",
-		"2014-03-12" = "Wolfe Building W2207",
-		"2014-03-18" = "Wolfe Building W2207",
-		"2014-03-19" = "Wolfe Building W2207",
-		"2014-03-25" = "Wolfe Building W2207",
-		"2014-03-26" = "Wolfe Building W2207",
-		"2014-04-01" = "Wolfe Building W2207",
-		"2014-04-02" = "Wolfe Building W2207",
-		"2014-04-08" = "Wolfe Building W2207",
-		"2014-04-09" = "Wolfe Building W2207",
-		"2014-04-15" = "Wolfe Building W2207",
-		"2014-04-16" = "Wolfe Building W2207",
-		"2014-04-22" = "Wolfe Building W2207",
-		"2014-04-23" = "Wolfe Building W2207",
-		"2014-04-29" = "Wolfe Building W2207",
-		"2014-04-30" = "Wolfe Building W2207"
-	),
-	"Leo" = list(
-		"2014-01-31" = "Wolfe Building W2303",
-		"2014-02-05" = "Wolfe Building W2205",
-		"2014-02-07" = "Wolfe Building W2205",
-		"2014-02-12" = "Wolfe Building E4130",
-		"2014-02-14" = "Wolfe Building W2205",
-		"2014-02-19" = "Wolfe Building E4130",
-		"2014-02-21" = "Wolfe Building W2205",
-		"2014-02-26" = "Wolfe Building W2205",
-		"2014-02-28" = "Wolfe Building W2205",
-		"2014-03-05" = "Wolfe Building E4130",
-		"2014-03-07" = "Wolfe Building W2205",
-		"2014-03-12" = "Wolfe Building E4130",
-		"2014-03-14" = "Wolfe Building W2205",
-		"2014-03-26" = "Wolfe Building W2015",
-		"2014-03-28" = "Wolfe Building W2303",
-		"2014-04-02" = "Wolfe Building W2009",
-		"2014-04-04" = "Wolfe Building W2303",
-		"2014-04-09" = "Wolfe Building W2015",
-		"2014-04-11" = "Wolfe Building E2527",
-		"2014-04-16" = "Wolfe Building W2009",
-		"2014-04-18" = "Wolfe Building E2527",
-		"2014-04-23" = "Wolfe Building W2009",
-		"2014-04-25" = "Wolfe Building E2527",
-		"2014-04-30" = "Wolfe Building W2009",
-		"2014-05-02" = "Wolfe Building E2527"
-	),
-	"Kevin" = list(
-		"2014-02-04" = "Wolfe Building W2205",
-		"2014-02-05" = "Wolfe Building W2207",
-		"2014-02-11" = "Wolfe Building W2205",
-		"2014-02-12" = "Wolfe Building W2207",
-		"2014-02-18" = "Wolfe Building E6130",
-		"2014-02-19" = "Wolfe Building W2207",
-		"2014-02-25" = "Wolfe Building W2205",
-		"2014-02-26" = "Wolfe Building W2207",
-		"2014-03-04" = "Wolfe Building W2205",
-		"2014-03-05" = "Wolfe Building W2207",
-		"2014-03-11" = "Wolfe Building E6130",
-		"2014-03-12" = "Wolfe Building W2207",
-		"2014-03-24" = "Wolfe Building E2133",
-		"2014-03-25" = "Wolfe Building W4007",
-		"2014-03-31" = "Wolfe Building E2133",
-		"2014-04-01" = "Wolfe Building W4007",
-		"2014-04-07" = "Wolfe Building W2205",
-		"2014-04-08" = "Wolfe Building W4007",
-		"2014-04-14" = "Wolfe Building E2133",
-		"2014-04-15" = "Wolfe Building W4007",
-		"2014-04-21" = "Wolfe Building E2133",
-		"2014-04-22" = "Wolfe Building W4007",
-		"2014-04-28" = "Wolfe Building E2133",
-		"2014-04-29" = "Wolfe Building W4007"
-	),
-	"Amy" = list(
-		"2014-02-03" = "Wolfe Building W2300",
-		"2014-02-04" = "Wolfe Building W4007",
-		"2014-02-10" = "Wolfe Building W2300",
-		"2014-02-11" = "Wolfe Building E2133",
-		"2014-02-17" = "Wolfe Building W2300",
-		"2014-02-18" = "Wolfe Building W4007",
-		"2014-02-24" = "Wolfe Building W2300",
-		"2014-02-25" = "Wolfe Building W4007",
-		"2014-03-03" = "Wolfe Building W2300",
-		"2014-03-04" = "Wolfe Building W4007",
-		"2014-03-10" = "Wolfe Building W2300",
-		"2014-03-11" = "Wolfe Building W4007",
-		"2014-03-17" = "Wolfe Building W4007",
-		"2014-03-18" = "Wolfe Building W4007",
-		"2014-03-24" = "Wolfe Building W2033",
-		"2014-03-25" = "Wolfe Building W2009",
-		"2014-03-31" = "Wolfe Building W2033",
-		"2014-04-01" = "Wolfe Building W2009",
-		"2014-04-07" = "Wolfe Building W2033",
-		"2014-04-08" = "Wolfe Building W2009",
-		"2014-04-14" = "Wolfe Building W2033",
-		"2014-04-15" = "Wolfe Building W2009",
-		"2014-04-21" = "Wolfe Building W2033",
-		"2014-04-22" = "Wolfe Building W2009",
-		"2014-04-28" = "Wolfe Building W2033",
-		"2014-04-29" = "Wolfe Building W2009"
-	),
-	"Therri" = list(
-		"2014-02-03" = "Wolfe Building W2033",
-		"2014-02-06" = "Wolfe Building W2303",
-		"2014-02-10" = "Wolfe Building W2207",
-		"2014-02-13" = "Wolfe Building W3513",
-		"2014-02-17" = "Wolfe Building W2207",
-		"2014-02-20" = "Wolfe Building W2303",
-		"2014-02-24" = "Wolfe Building E2133",
-		"2014-02-27" = "Wolfe Building W2303",
-		"2014-03-03" = "Wolfe Building W2207",
-		"2014-03-06" = "Wolfe Building W2303",
-		"2014-03-10" = "Wolfe Building W2207",
-		"2014-03-13" = "Wolfe Building W2303",
-		"2014-03-24" = "Wolfe Building W2029",
-		"2014-03-26" = "Wolfe Building W2205",
-		"2014-03-31" = "Wolfe Building W2205",
-		"2014-04-02" = "Wolfe Building W2205",
-		"2014-04-07" = "Wolfe Building W2029",
-		"2014-04-09" = "Wolfe Building W2009",
-		"2014-04-14" = "Wolfe Building W2205",
-		"2014-04-16" = "Wolfe Building W2205",
-		"2014-04-21" = "Wolfe Building W2205",
-		"2014-04-23" = "Wolfe Building W2205",
-		"2014-04-28" = "Wolfe Building W2205",
-		"2014-04-30" = "Wolfe Building W2205"
-	)
-)
-
 ## Assign room
 assignRoom <- function(new) {
 	## Assign room
-	if(new$TA == "Molly") {
-		mtgRoom <- "Hampton House Room 508"
-	} else {
-		mtgRoom <-  TAroom[[new$TA]][[as.character(as.Date(new$desiredDate, tz="America/New_York"))]]
-	}
+	mtgRoom <-  TAroom[[new$TA]][[as.character(as.Date(new$desiredDate, tz="America/New_York"))]]
 	## Assign default room if 
 	mtgRoom <- ifelse(is.null(mtgRoom), "*to be determined*", mtgRoom)
 	
@@ -381,7 +227,9 @@ confirmEmail <- function(from, to, subject, msg) {
 ## will not work unless address is @gmail.com
 #	sendmail(from, to=paste0("<", new$Email, ">"), subject=subject, msg=msgStudent, control=list(smtpServer="ASPMX.L.GOOGLE.COM"))
 	from <- sprintf("<mphcapstoneta@gmail.com>")
-	sendmail(from, to=to, subject=subject, msg=msg, control=list(smtpServer="ASPMX.L.GOOGLE.COM"))
+    ## Currently not working (2015-01-20) with sendmailR
+	#sendmail(from, to=to, subject=subject, msg=msg, control=list(smtpServer="ASPMX.L.GOOGLE.COM"))
+    sendmail(recipient = to, subject = subject, message = msg)
 	return("\n")
 }
 
@@ -586,7 +434,7 @@ shinyServer(function(input, output, session) {
 	
 	## All reservations
 	output$taData <- downloadHandler(
-	    filename  <-  function() { 'MPHcapstoneTAreservations2014.csv' },
+	    filename  <-  function() { 'MPHcapstoneTAreservations2015.csv' },
 	    content  <-  function(file) {
 			if(input$tapass == tapass) {
 				data <- loadReservationsFunc()
