@@ -10,11 +10,11 @@ load("TAroom.Rdata")
 
 ## Options
 TAchoices <- list(
-	"Monday" = c("Choose a TA", "Youssef Farag" = "Youssef", "Danielle Edwards" = "Danielle", "Molly Lasater" = "Molly"),
-	"Tuesday" = c("Choose a TA", "Leonardo Collado Torres" = "Leo", "Danielle Edwards" = "Danielle", "Molly Lasater" = "Molly"),
-	"Wednesday" = c("Choose a TA"),
-	"Thursday" = c("Choose a TA", "Youssef Farag" = "Youssef"),
-	"Friday" = c("Choose a TA", "Leonardo Collado Torres" = "Leo")
+	"Monday" = c("Choose a TA", "Molly Lasater" = "Molly", "Youssef Farag" = "Youssef"),
+	"Tuesday" = c("Choose a TA", "Leonardo Collado Torres" = "Leo"),
+	"Wednesday" = c("Choose a TA", "Danielle Edwards" = "Danielle", "Molly Lasater" = "Molly"),
+	"Thursday" = c("Choose a TA"),
+	"Friday" = c("Choose a TA", "Danielle Edwards" = "Danielle", "Leonardo Collado Torres" = "Leo", "Youssef Farag" = "Youssef")
 )
 
 TAhour <- list(
