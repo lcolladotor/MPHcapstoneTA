@@ -138,13 +138,13 @@ shinyUI(pageWithSidebar(
 				tags$p("Tuesdays & Fridays 1-3pm"),
 				helpText("Areas of focus: biostatistics, genomics"),
 				h4("Youssef Farag"),
-				tags$p("Mondays & Thursdays 4-6pm"),
+				tags$p("Mondays & Fridays 3:45-5:45pm"),
 				helpText("Areas of focus: epidemiology (methods, non-communicable diseases, cancer, environmental epidemiology), NHANES and survey data analysis, global health"),
 				h4("Danielle Edwards"),
-				tags$p("Mondays 1:30–3pm, Tuesdays 3-4:30 pm, and Mondays 8–9 pm (via Skype)"),
+				tags$p("Wednesdays 2-3pm, Fridays 10-1pm"),
 				helpText("Areas of focus: bioethics, health policy, law"),				
 				h4("Molly Lasater"),
-				tags$p("Mondays 8:30-10:30 am, Tuesdays 12-2pm"),
+				tags$p("Mondays 10:30-12:30pm, Wednesdays 12-2pm"),
 				helpText("Areas of focus: international health, qualitative research, social & behavioral sciences"),
 				tags$hr()
 			),
@@ -224,7 +224,7 @@ shinyUI(pageWithSidebar(
 				HTML("Powered by <a href='http://www.rstudio.com/shiny/'>Shiny</a> and hosted by <a href='http://www.rstudio.com/'>RStudio</a>."),
 				tags$hr(),
 				HTML("Developed by <a href='http://bit.ly/LColladoTorres'>L. Collado Torres</a>."),
-				HTML("Version 0.0.8. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
+				HTML("Version 0.0.9. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
 				tags$hr()
 			)
 			
