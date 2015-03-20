@@ -27,7 +27,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: epidemiology (methods, non-communicable diseases, cancer, environmental epidemiology), NHANES and survey data analysis, global health"),
 			tags$hr(),
-			HTML("Available: Mondays & Thursdays")
+			HTML("Available: Mondays & Fridays")
 		),
 
 		## TA: Leo
@@ -47,7 +47,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: bioethics, health policy, law. Note Mondays 8-9pm slots are Skype only."),
 			tags$hr(),
-			HTML("Available: Mondays & Tuesdays")
+			HTML("Available: Wednesdays & Fridays")
 		),
 
 		## TA: Molly
@@ -57,7 +57,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: international health, qualitative research, social & behavioral sciences"),
 			tags$hr(),
-			HTML("Available: Mondays & Tuesdays")
+			HTML("Available: Mondays & Wednesdays")
 		),
 		
 		## Office hour
