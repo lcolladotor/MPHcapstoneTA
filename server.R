@@ -218,7 +218,7 @@ buildEmail <- function(new, action="confirm", verbose=TRUE, email=TRUE) {
 		cat("\n\n")
 		cat(msgStudent)
 	}
-	res <- list(to=taemails$email[taemails$ta == new$TA], subject=subject, msg=msg)
+	res <- list(to=taemails$email[taemails$ta == new$TA], subject=subject, msg=msg, from = NA)
 	return(res)
 }
 
@@ -229,7 +229,7 @@ confirmEmail <- function(from, to, subject, msg) {
 	from <- sprintf("<mphcapstoneta@gmail.com>")
     ## Currently not working (2015-01-20) with sendmailR
 	#sendmail(from, to=to, subject=subject, msg=msg, control=list(smtpServer="ASPMX.L.GOOGLE.COM"))
-    sendmail(recipient = to, subject = subject, message = msg)
+    mail::sendmail(recipient = to, subject = subject, message = msg)
 	return("\n")
 }
 
