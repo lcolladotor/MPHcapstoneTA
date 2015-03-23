@@ -50,11 +50,19 @@ TAhour <- list(
 )
 
 ## Assign room
-assignRoom <- function(new) {
-	## Assign room
-	mtgRoom <-  TAroom[[new$TA]][[as.character(as.Date(new$desiredDate, tz="America/New_York"))]]
-	## Assign default room if 
-	mtgRoom <- ifelse(is.null(mtgRoom), "*to be determined*", mtgRoom)
+assignRoom <- function(TA, desiredDate) {
+    
+    if(TA %in% names(TAroom)) {
+        possibleRooms <- TAroom[[TA]]
+        charDate <- as.character(as.Date(desiredDate, tz="America/New_York"))
+        if(charDate %in% names(possibleRooms)) {
+            mtgRoom <- possibleRooms[[charDate]]
+        } else {
+            mtgRoom <- "*to be determined*"
+        }
+    } else {
+        mtgRoom <- "*to be determined*"
+    }
 	
 	## Done
 	return(mtgRoom)
@@ -87,7 +95,7 @@ buildMsg <- function(new, tentative="*tentative* ") {
 	tmpSkype <- paste0(c(" (skype ID: ", new$Skype, ")"), collapse="")
 	
 	## Assign room
-	mtgRoom <- assignRoom(new)
+	mtgRoom <- assignRoom(new$TA, new$desiredDate)
 		
 	## Construct the message
 	msg <- paste0(c(
@@ -171,9 +179,9 @@ calendarBuild <- function(file, reservations, public=TRUE) {
 	
 		cat("BEGIN:VEVENT\n")
 		if(public) {
-			cat(paste("SUMMARY: TA", reservations$TA[i], "Student", reservations$Student[i], "Location", assignRoom(reservations[i, ]), "\n", sep=" "))
+			cat(paste("SUMMARY: TA", reservations$TA[i], "Student", reservations$Student[i], "Location", assignRoom(reservations$TA[i], reservations$desiredDate[i]), "\n", sep=" "))
 		} else {
-			cat(paste("SUMMARY:", reservations$Student[i], reservations$Email[i], reservations$Skype[i], reservations$Concentration[i], assignRoom(reservations[i, ]), "\n", sep=" "))
+			cat(paste("SUMMARY:", reservations$Student[i], reservations$Email[i], reservations$Skype[i], reservations$Concentration[i], assignRoom(reservations$TA[i], reservations$desiredDate[i]), "\n", sep=" "))
 		}
 		
 		cat(paste0("DTSTAMP:", stamp, "\n"))
