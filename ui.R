@@ -47,7 +47,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: bioethics, health policy, law. Note Mondays 8-9pm slots are Skype only."),
 			tags$hr(),
-			HTML("Available: Wednesdays & Fridays")
+			HTML("Available: Thursdays")
 		),
 
 		## TA: Molly
@@ -135,7 +135,7 @@ shinyUI(pageWithSidebar(
 			),			
 			tabPanel("TA info",				
                 h4("Danielle Edwards"),
-				tags$p("Wednesdays 2-3pm, Fridays 10-1pm"),
+				tags$p("Thursdays 1-5pm"),
 				helpText("Areas of focus: bioethics, health policy, law"),
                 h4("Leonardo Collado Torres"),
 				tags$p("Tuesdays & Fridays 1-3pm"),
@@ -225,7 +225,7 @@ shinyUI(pageWithSidebar(
 				HTML("Powered by <a href='http://www.rstudio.com/shiny/'>Shiny</a> and hosted by <a href='http://www.rstudio.com/'>RStudio</a>."),
 				tags$hr(),
 				HTML("Developed by <a href='http://bit.ly/LColladoTorres'>L. Collado Torres</a>."),
-				HTML("Version 0.0.9. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
+				HTML("Version 0.0.10. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
 				tags$hr()
 			)
 			

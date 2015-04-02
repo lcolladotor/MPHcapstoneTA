@@ -12,9 +12,9 @@ load("TAroom.Rdata")
 TAchoices <- list(
 	"Monday" = c("Choose a TA", "Molly Lasater" = "Molly", "Youssef Farag" = "Youssef"),
 	"Tuesday" = c("Choose a TA", "Leonardo Collado Torres" = "Leo"),
-	"Wednesday" = c("Choose a TA", "Danielle Edwards" = "Danielle", "Molly Lasater" = "Molly"),
-	"Thursday" = c("Choose a TA"),
-	"Friday" = c("Choose a TA", "Danielle Edwards" = "Danielle", "Leonardo Collado Torres" = "Leo", "Youssef Farag" = "Youssef")
+	"Wednesday" = c("Choose a TA", "Molly Lasater" = "Molly"),
+	"Thursday" = c("Choose a TA", "Danielle Edwards" = "Danielle"),
+	"Friday" = c("Choose a TA", "Leonardo Collado Torres" = "Leo", "Youssef Farag" = "Youssef")
 )
 
 TAhour <- list(
@@ -35,9 +35,9 @@ TAhour <- list(
 	"Danielle" = list(
 		"Monday" = "00:00",
 		"Tuesday" = "00:00",
-		"Wednesday" = c("14:00-14:30", "14:30-15:00"),
-		"Thursday" = "00:00",
-		"Friday" = c("10:00-10:30", "10:30-11:00", "11:00-11:30", "11:30-12:00", "12:00-12:30", "12:30-13:00")
+		"Wednesday" = "00:00",
+		"Thursday" = c("13:00-13:30", "13:30-14:00", "14:00-14:30", "14:30-15:00", "15:00-15:30", "15:30-16:00", "16:00-16:30", "16:30-17:00"),
+		"Friday" = "00:00"
 	),
 	"Molly" = list(
 		"Monday" = c("10:30-11:00", "11:00-11:30", "11:30-12:00", "12:00-12:30"),
