@@ -3,8 +3,6 @@ MPHcapstoneTA
 
 Shiny app made so students can sign up and reserve office hour slots with MPH capstone TAs. Minimizes the need for TAs to email students and concentrates sign up sheets in a single site.
 
-You can view the live app [here](http://glimmer.rstudio.com/lcolladotor/MPHcapstoneTA/).
-
 ## Found a bug?
 
 Please document the problem and submit it in the [issues](https://github.com/lcolladotor/MPHcapstoneTA/issues) page. Thank you!
