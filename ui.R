@@ -4,7 +4,7 @@ source("server.R")
 ## Specify layout
 shinyUI(pageWithSidebar(
 	
-	headerPanel(HTML("MPH capstone TA office hours - 2015 version")),
+	headerPanel(HTML("MPH capstone TA office hours - 2016 version")),
 	
 	
 	sidebarPanel(
@@ -96,7 +96,7 @@ shinyUI(pageWithSidebar(
 		h4("Final step"),
 		selectInput("reserve", "Action to perform", c("", "Submit reservation", "Cancel reservation")),
 		helpText("Verify that you see the confirmation of your reservation/cancellation."),
-		HTML("You must <a href='http://glimmer.rstudio.com/lcolladotor/MPHcapstoneTA/'>reload the site</a> to perform another action.")
+		HTML("You must <a href='https://lcolladotor.shinyapps.io/MPHcapstoneTA/'>reload the site</a> to perform another action.")
 		
 	),
 		
@@ -130,22 +130,19 @@ shinyUI(pageWithSidebar(
 				dataTableOutput('previous'),
 				tags$hr(),
 				helpText("You can also view the reserved slots in the public calendar"),
-				HTML("<iframe src='https://www.google.com/calendar/embed?title=TA%20public%20calendar&amp;showCalendars=0&amp;mode=AGENDA&amp;height=300&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=pdqn6hl8fgjh2antqkgreo886j6j8oo3%40import.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York' style=' border-width:0 ' width='600' height='300' frameborder='0' scrolling='no'></iframe>"),
+				HTML("<iframe src='https://calendar.google.com/calendar/embed?title=TA%20public%20calendar&amp;mode=AGENDA&amp;height=300&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=qldltfjvd89fga1mam24upnc18s6fk05%40import.calendar.google.com&amp;color=%23691426&amp;ctz=America%2FNew_York' style='border-width:0' width='600' height='300' frameborder='0' scrolling='no'></iframe>"),
 				helpText("Note that the calendar has a very slow refresh rate due to how Google Calendar works.")
 			),			
 			tabPanel("TA info",				
                 h4("Danielle Edwards"),
-				tags$p("Thursdays 1-5pm"),
+				tags$p("Thusdays & Thursdays 10:30-12:30"),
 				helpText("Areas of focus: bioethics, health policy, law"),
                 h4("Leonardo Collado Torres"),
 				tags$p("Tuesdays & Fridays 1-3pm"),
 				helpText("Areas of focus: biostatistics, genomics"),
-				h4("Molly Lasater"),
-				tags$p("Mondays 10:30-12:30pm, Wednesdays 12-2pm"),
-				helpText("Areas of focus: international health, qualitative research, social & behavioral sciences"),
 				h4("Youssef Farag"),
-				tags$p("Mondays & Fridays 3:45-5:45pm"),
-				helpText("Areas of focus: epidemiology (methods, non-communicable diseases, cancer, environmental epidemiology), NHANES and survey data analysis, global health"),
+				tags$p("Mondays & Wednesdays 1:30-3:30pm"),
+				helpText("Areas of focus: epidemiology (methods, cardiometabolic and non-communicable diseases, cancer, environmental/occupational epidemiology), NHANES and survey data analysis, global health"),
 				tags$hr()
 				
 			),
@@ -199,7 +196,7 @@ shinyUI(pageWithSidebar(
 				h4("Add the public calendar"),
 				helpText("You can add the public calendar to your client by either adding the public Google calendar from the 'Current reservations' tab (refresh rate is very slow) or using your own calendar application and choosing a high refresh rate."),
 				helpText("For example, in a Mac you can use the 'Calendar' app, then go to 'File' -> 'New calendar subscription ...' -> enter the calendar URL -> choose a refresh rate of every 5 (or 15) minutes."),
-				HTML("<a href='http://glimmer.rstudio.com/lcolladotor/MPHcapstoneTA/publicCalendar.ics'>Public calendar URL</a>."),
+				HTML("<a href='https://lcolladotor.shinyapps.io/MPHcapstoneTA/publicCalendar.ics'>Public calendar URL</a>."),
 				h4("Enter the TA password"),
 				textInput("tapass", "TA password", ""),
 				h4("View details on recent reservations"),
@@ -225,7 +222,7 @@ shinyUI(pageWithSidebar(
 				HTML("Powered by <a href='http://www.rstudio.com/shiny/'>Shiny</a> and hosted by <a href='http://www.rstudio.com/'>RStudio</a>."),
 				tags$hr(),
 				HTML("Developed by <a href='http://bit.ly/LColladoTorres'>L. Collado Torres</a>."),
-				HTML("Version 0.0.10. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
+				HTML("Version 0.0.11. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
 				tags$hr()
 			)
 			
