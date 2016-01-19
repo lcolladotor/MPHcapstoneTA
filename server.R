@@ -10,8 +10,8 @@ load("TAroom.Rdata")
 
 ## Options
 TAchoices <- list(
-	"Monday" = c("Choose a TA", "Youssef Farag" = "Youssef"),
-	"Tuesday" = c("Choose a TA", "Danielle Edwards" = "Danielle", "Leonardo Collado Torres" = "Leo"),
+	"Monday" = c("Choose a TA", "Emily Hurley" = "Emily", "Youssef Farag" = "Youssef"),
+	"Tuesday" = c("Choose a TA", "Danielle Edwards" = "Danielle", "Emily Hurley" = "Emily", "Leonardo Collado Torres" = "Leo"),
 	"Wednesday" = c("Choose a TA", "Youssef Farag" = "Youssef"),
 	"Thursday" = c("Choose a TA", "Danielle Edwards" = "Danielle"),
 	"Friday" = c("Choose a TA", "Leonardo Collado Torres" = "Leo")
@@ -37,6 +37,13 @@ TAhour <- list(
 		"Tuesday" = c("10:30-11:00", "11:00-11:30", "11:30-12:00", "12:00-12:30"),
 		"Wednesday" = "00:00",
 		"Thursday" = c("10:30-11:00", "11:00-11:30", "11:30-12:00", "12:00-12:30"),
+		"Friday" = "00:00"
+	),
+	"Emily" = list(
+		"Monday" = c("14:30-15:00", "15:00:15-30", "15:30-16:00", "16:00-16:30"),
+		"Tuesday" = c("09:00-09:30", "09:30-10:00", "10:00-10:30", "10:30-11:00"),
+		"Wednesday" = "00:00",
+		"Thursday" = "00:00",
 		"Friday" = "00:00"
 	),
 	"Choose a TA" = list("Monday" = "00:00", "Tuesday" = "00:00", "Wednesday" = "00:00", "Thursday" = "00:00", "Friday" = "00:00")
@@ -444,6 +451,19 @@ shinyServer(function(input, output, session) {
 				data <- data.frame("NoAccess"="EnterPassword", stringsAsFactors="FALSE")
 			}
 			write.csv(data, file)
+			
+	    }
+	)
+	output$taRData <- downloadHandler(
+	    filename  <-  function() { 'reservations.Rdata' },
+	    content  <-  function(file) {
+			if(input$tapass == tapass) {
+				data <- loadReservationsFunc()
+				data <- data[!is.na(data$TA), ]
+			} else {
+				data <- data.frame("NoAccess"="EnterPassword", stringsAsFactors="FALSE")
+			}
+			save(data, file = file)
 			
 	    }
 	)

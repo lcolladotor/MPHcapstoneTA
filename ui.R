@@ -137,6 +137,9 @@ shinyUI(pageWithSidebar(
                 h4("Danielle Edwards"),
 				tags$p("Thusdays & Thursdays 10:30-12:30"),
 				helpText("Areas of focus: bioethics, health policy, law"),
+                h4("Emily Hurley"),
+				tags$p("Mondays 2:30–4:30pm, Tuesdays 9:00-11:00 am"),
+				helpText("Areas of focus: international health, qualitative research, social & behavioral sciences"),
                 h4("Leonardo Collado Torres"),
 				tags$p("Tuesdays & Fridays 1-3pm"),
 				helpText("Areas of focus: biostatistics, genomics"),
@@ -213,6 +216,8 @@ shinyUI(pageWithSidebar(
 				h4("Download all reservations"),
 				helpText("Generates a CSV file with all the reservations data"),
 				downloadButton('taData', 'Download'),
+                helpText("Download in R format"),
+                downloadButton('taRData', 'Download Rdata'),
 				helpText("TA password is required."),
 				tags$hr()
 			),
@@ -222,7 +227,7 @@ shinyUI(pageWithSidebar(
 				HTML("Powered by <a href='http://www.rstudio.com/shiny/'>Shiny</a> and hosted by <a href='http://www.rstudio.com/'>RStudio</a>."),
 				tags$hr(),
 				HTML("Developed by <a href='http://bit.ly/LColladoTorres'>L. Collado Torres</a>."),
-				HTML("Version 0.0.11. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
+				HTML("Version 0.0.12. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
 				tags$hr()
 			)
 			
