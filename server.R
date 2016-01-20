@@ -463,7 +463,8 @@ shinyServer(function(input, output, session) {
 			} else {
 				data <- data.frame("NoAccess"="EnterPassword", stringsAsFactors="FALSE")
 			}
-			save(data, file = file)
+            reservations <- data
+			save(reservations, file = file)
 			
 	    }
 	)
