@@ -17,7 +17,7 @@ shinyUI(pageWithSidebar(
 		selectInput("weekday", "Weekday", c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")),	
 		
 		## Choose TA
-		selectInput("ta", "TA", c("Choose a TA", "Youssef Farag" = "Youssef", "Danielle Edwards" = "Danielle", "Molly Lasater" = "Molly", "Leonardo Collado Torres" = "Leo")),
+		selectInput("ta", "TA", c("Choose a TA", "Youssef Farag" = "Youssef", "Danielle Edwards" = "Danielle", "Emily Hurley" = "Emily", "Leonardo Collado Torres" = "Leo")),
 		
 		#### TA info
 		## TA: Youssef
@@ -25,9 +25,9 @@ shinyUI(pageWithSidebar(
 			condition = "input.ta == 'Youssef'",
 	
 			## Area of focus
-			helpText("Areas of focus: epidemiology (methods, non-communicable diseases, cancer, environmental epidemiology), NHANES and survey data analysis, global health"),
+			helpText("Areas of focus: epidemiology (methods, cardiometabolic and non-communicable diseases, cancer, environmental/occupational epidemiology), NHANES and survey data analysis, global health"),
 			tags$hr(),
-			HTML("Available: Mondays & Fridays")
+			HTML("Available: Mondays & Wednesdays")
 		),
 
 		## TA: Leo
@@ -45,19 +45,19 @@ shinyUI(pageWithSidebar(
 			condition = "input.ta == 'Danielle'",
 	
 			## Area of focus
-			helpText("Areas of focus: bioethics, health policy, law. Note Mondays 8-9pm slots are Skype only."),
+			helpText("Areas of focus: bioethics, health policy, law"),
 			tags$hr(),
-			HTML("Available: Thursdays")
+			HTML("Available: Tuesdays & Thursdays")
 		),
 
-		## TA: Molly
+		## TA: Emily
 		conditionalPanel(
-			condition = "input.ta == 'Molly'",
+			condition = "input.ta == 'Emily'",
 	
 			## Area of focus
 			helpText("Areas of focus: international health, qualitative research, social & behavioral sciences"),
 			tags$hr(),
-			HTML("Available: Mondays & Wednesdays")
+			HTML("Available: Mondays & Tuesdays")
 		),
 		
 		## Office hour
@@ -135,7 +135,7 @@ shinyUI(pageWithSidebar(
 			),			
 			tabPanel("TA info",				
                 h4("Danielle Edwards"),
-				tags$p("Thusdays & Thursdays 10:30-12:30"),
+				tags$p("Tuesdays & Thursdays 10:30-12:30"),
 				helpText("Areas of focus: bioethics, health policy, law"),
                 h4("Emily Hurley"),
 				tags$p("Mondays 2:30–4:30pm, Tuesdays 9:00-11:00 am"),
@@ -209,7 +209,7 @@ shinyUI(pageWithSidebar(
 				dataTableOutput("recent"),
 				helpText("Requires password to display the information."),
 				h4("Download calendar"),
-				selectInput("taname", "Select a TA", c("All", "Youssef", "Leo", "Danielle", "Molly")),
+				selectInput("taname", "Select a TA", c("All", "Youssef", "Leo", "Danielle", "Emily")),
 				helpText("If you selected a TA, only the events for that TA will appear in the calendar."),
 				downloadButton('calendar', 'Download'),
 				helpText("TA password is required."),
