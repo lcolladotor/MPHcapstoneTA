@@ -331,6 +331,7 @@ shinyServer(function(input, output, session) {
 			emailInfo <- buildEmail(new, "cancel")
 			if(input$reserve == "Cancel reservation") {
 				## Update reservations info
+                drop_get("github/MPHcapstoneTA/reservations.Rdata", overwrite = TRUE, dtoken = token)
 				reservations <- loadReservationsFunc()
 				idx <- with(reservations, which(TA == new$TA & Student == new$Student & Email == new$Email & Distance == new$Distance & Skype == new$Skype & Concentration == new$Concentration & desiredDate == new$desiredDate))
 				reservations <- reservations[-idx, ]
@@ -363,6 +364,7 @@ shinyServer(function(input, output, session) {
 			emailInfo <- buildEmail(new, "confirm")
 			if(input$reserve == "Submit reservation") {
 				## Update reservations info
+                drop_get("github/MPHcapstoneTA/reservations.Rdata", overwrite = TRUE, dtoken = token)
 				reservations <- loadReservationsFunc()
 				reservations <- rbind(reservations, new)
 				
