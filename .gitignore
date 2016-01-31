@@ -4,4 +4,10 @@
 ## Setup files
 setup.R
 
+## Dropbox files
+lcollado-droptoken.rds
+.httr-oauth
 
+## Misc
+rsconnect
+Old

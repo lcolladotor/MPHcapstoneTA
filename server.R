@@ -1,12 +1,14 @@
 ## Setup
 library("shiny")
 #library("sendmailR")
-library(mail)
+library("mail")
+library("rdrop2")
 
 ## Load data
 load("tapass.Rdata")
 load("taemails.Rdata")
 load("TAroom.Rdata")
+token <- readRDS("lcollado-droptoken.rds")
 
 ## Options
 TAchoices <- list(
@@ -48,6 +50,15 @@ TAhour <- list(
 	),
 	"Choose a TA" = list("Monday" = "00:00", "Tuesday" = "00:00", "Wednesday" = "00:00", "Thursday" = "00:00", "Friday" = "00:00")
 )
+
+## Download latest from Dropbox
+drop_get("github/MPHcapstoneTA/reservations.Rdata", dtoken = token)
+
+## Save reservations
+saveRes <- function(reservations, file = 'reservations.Rdata', dest = "github/MPHcapstoneTA") {
+    save(reservations, file = file)
+    drop_upload(file, dest = dest, dtoken = token)
+}
 
 ## Assign room
 assignRoom <- function(TA, desiredDate) {
@@ -192,6 +203,7 @@ calendarBuild <- function(file, reservations, public=TRUE) {
 	cat("END:VCALENDAR")
 	cat("\n")
 	sink()
+    drop_upload(file, dest = "github/MPHcapstoneTA/www", dtoken = token)
 }
 
 
@@ -249,7 +261,7 @@ loadReservationsFunc <- function() {
 		load("reservations.Rdata")
 	} else {
 		reservations <- data.frame("TA"=NA, "Weekday"=NA, "officeHour"=NA, "Student"=NA, "Email"=NA, "Distance"=NA, "Skype"=NA, "reservationDate"=Sys.time() -1, "Concentration"=NA, "Description"=NA, "minimumPossible"=as.POSIXlt(Sys.time() -1, "America/New_York"), "desiredDate"=as.POSIXlt(Sys.time() -1, "America/New_York"), stringsAsFactors=FALSE)
-		save(reservations, file="reservations.Rdata")
+        saveRes(reservations)
 	}
 	reservations$reservationDate <- as.POSIXlt(reservations$reservationDate, "America/New_York")
 	reservations$minimumPossible <- as.POSIXlt(reservations$minimumPossible, "America/New_York")
@@ -334,10 +346,10 @@ shinyServer(function(input, output, session) {
 				#cat(conf)
 				
 				## Create backup just in case
-				save(reservations, file=paste0("reservations.backup-", Sys.time(), ".Rdata"))
+                saveRes(reservations, file=paste0("reservations.backup-", Sys.time(), ".Rdata"), dest = "github/MPHcapstoneTA/backups")
 				
 				## Save changes
-				save(reservations, file="reservations.Rdata")
+				saveRes(reservations)
 							
 				## Finish
 				updateSelectInput(session, "reserve", choices="Cancellation registered", selected="Cancellation registered")
@@ -365,10 +377,10 @@ shinyServer(function(input, output, session) {
 				#cat(conf)
 				
 				## Create backup just in case
-				save(reservations, file=paste0("reservations.backup-", Sys.time(), ".Rdata"))
+				saveRes(reservations, file=paste0("reservations.backup-", Sys.time(), ".Rdata"), dest = "github/MPHcapstoneTA/backups")
 				
 				## Save changes
-				save(reservations, file="reservations.Rdata")
+				saveRes(reservations)
 			
 				## Finish
 				updateSelectInput(session, "reserve", choices="Reservation submitted", selected="Reservation submitted")
@@ -442,7 +454,7 @@ shinyServer(function(input, output, session) {
 	
 	## All reservations
 	output$taData <- downloadHandler(
-	    filename  <-  function() { 'MPHcapstoneTAreservations2015.csv' },
+	    filename  <-  function() { 'MPHcapstoneTAreservations2016.csv' },
 	    content  <-  function(file) {
 			if(input$tapass == tapass) {
 				data <- loadReservationsFunc()
