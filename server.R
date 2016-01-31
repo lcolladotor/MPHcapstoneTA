@@ -52,7 +52,7 @@ TAhour <- list(
 )
 
 ## Download latest from Dropbox
-drop_get("github/MPHcapstoneTA/reservations.Rdata", dtoken = token)
+drop_get("github/MPHcapstoneTA/reservations.Rdata", overwrite = TRUE, dtoken = token)
 
 ## Save reservations
 saveRes <- function(reservations, file = 'reservations.Rdata', dest = "github/MPHcapstoneTA") {
