@@ -53,6 +53,11 @@ TAhour <- list(
 
 ## Download latest from Dropbox
 drop_get("github/MPHcapstoneTA/reservations.Rdata", overwrite = TRUE, dtoken = token)
+drop_get("github/mphcapstoneta/www/publicCalendar.ics", local_file = "www/publicCalendar.ics", overwrite = TRUE, dtoken = token)
+drop_get("github/mphcapstoneta/www/publicCalendar-Leo.ics", local_file = "www/publicCalendar-Leo.ics", overwrite = TRUE, dtoken = token)
+drop_get("github/mphcapstoneta/www/publicCalendar-Emily.ics", local_file = "www/publicCalendar-Emily.ics", overwrite = TRUE, dtoken = token)
+drop_get("github/mphcapstoneta/www/publicCalendar-Youssef.ics", local_file = "www/publicCalendar-Youssef.ics", overwrite = TRUE, dtoken = token)
+drop_get("github/mphcapstoneta/www/publicCalendar-Danielle.ics", local_file = "www/publicCalendar-Danielle.ics", overwrite = TRUE, dtoken = token)
 
 ## Save reservations
 saveRes <- function(reservations, file = 'reservations.Rdata', dest = "github/MPHcapstoneTA") {
