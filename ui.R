@@ -130,7 +130,7 @@ shinyUI(pageWithSidebar(
 				dataTableOutput('previous'),
 				tags$hr(),
 				helpText("You can also view the reserved slots in the public calendar"),
-				HTML("<iframe src='https://calendar.google.com/calendar/embed?title=TA%20public%20calendar&amp;mode=AGENDA&amp;height=300&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=qldltfjvd89fga1mam24upnc18s6fk05%40import.calendar.google.com&amp;color=%23691426&amp;ctz=America%2FNew_York' style='border-width:0' width='600' height='300' frameborder='0' scrolling='no'></iframe>"),
+				HTML("<iframe src='https://calendar.google.com/calendar/embed?title=TA%20public%20calendar&amp;mode=AGENDA&amp;height=300&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=2pe2ni4o1topjo4v9dj0tknk68vn25oq%40import.calendar.google.com&amp;color=%238D6F47&amp;ctz=America%2FNew_York' style='border-width:0' width='600' height='300' frameborder='0' scrolling='no'></iframe>"),
 				helpText("Note that the calendar has a very slow refresh rate due to how Google Calendar works.")
 			),			
 			tabPanel("TA info",				
