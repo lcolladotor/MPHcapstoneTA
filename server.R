@@ -129,7 +129,9 @@ checkEntry <- function(new, reservations, verbose=TRUE) {
 		if(verbose) cat("Guide: Please enter your name.\n")
 	} else if (new$Email == "Your email") {
 		if(verbose) cat("Guide: Please enter your email.\n")
-	} else if (new$officeHour == "00:00"){
+	} else if (!grepl('@', new$Email)) {
+        if(verbose) cat("Guide: Please enter a valid email address")
+    } else if (new$officeHour == "00:00"){
 		if(verbose) cat("Guide: Please choose a valid office hour.\n")
 	} else if (new$Distance == "Yes" & new$Skype == "") {
 		if(verbose) cat("Guide: Please provide us your Skype username.\n")
