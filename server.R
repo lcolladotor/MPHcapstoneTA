@@ -65,6 +65,9 @@ saveRes <- function(reservations, file = 'reservations.Rdata', dest = "github/MP
     drop_upload(file, dest = dest, dtoken = token)
 }
 
+reservationsHist <- drop_history('github/mphcapstoneta/reservations.rdata', dtoken = token)
+save(reservationsHist, file = 'reservationsHist.Rdata')
+
 ## Assign room
 assignRoom <- function(TA, desiredDate) {
     
@@ -264,8 +267,14 @@ confirmEmail <- function(from, to, subject, msg) {
 
 ## Load previous data
 loadReservationsFunc <- function() {
-	if(file.exists("reservations.Rdata")) {
-		load("reservations.Rdata")
+	if(file.exists("reservations.Rdata") & file.exists('reservationsHist.Rdata')) {
+        load('reservationsHist.Rdata')        
+        ## Check if it's the latest version
+        newHist <- drop_history('github/mphcapstoneta/reservations.rdata', dtoken = token)
+        if(!identical(newHist, reservationsHist)) {
+            drop_get("github/MPHcapstoneTA/reservations.Rdata", overwrite = TRUE, dtoken = token)
+        }        
+        load("reservations.Rdata")
 	} else {
 		reservations <- data.frame("TA"=NA, "Weekday"=NA, "officeHour"=NA, "Student"=NA, "Email"=NA, "Distance"=NA, "Skype"=NA, "reservationDate"=Sys.time() -1, "Concentration"=NA, "Description"=NA, "minimumPossible"=as.POSIXlt(Sys.time() -1, "America/New_York"), "desiredDate"=as.POSIXlt(Sys.time() -1, "America/New_York"), stringsAsFactors=FALSE)
         saveRes(reservations)
@@ -337,8 +346,6 @@ shinyServer(function(input, output, session) {
 			cat("Confirmation message:\n\n")
 			emailInfo <- buildEmail(new, "cancel")
 			if(input$reserve == "Cancel reservation") {
-				## Update reservations info
-                drop_get("github/MPHcapstoneTA/reservations.Rdata", overwrite = TRUE, dtoken = token)
 				reservations <- loadReservationsFunc()
 				idx <- with(reservations, which(TA == new$TA & Student == new$Student & Email == new$Email & Distance == new$Distance & Skype == new$Skype & Concentration == new$Concentration & desiredDate == new$desiredDate))
 				reservations <- reservations[-idx, ]
@@ -370,8 +377,6 @@ shinyServer(function(input, output, session) {
 			cat("Confirmation message:\n\n")
 			emailInfo <- buildEmail(new, "confirm")
 			if(input$reserve == "Submit reservation") {
-				## Update reservations info
-                drop_get("github/MPHcapstoneTA/reservations.Rdata", overwrite = TRUE, dtoken = token)
 				reservations <- loadReservationsFunc()
 				reservations <- rbind(reservations, new)
 				
