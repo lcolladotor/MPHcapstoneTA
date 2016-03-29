@@ -27,7 +27,7 @@ shinyUI(pageWithSidebar(
 			## Area of focus
 			helpText("Areas of focus: epidemiology (methods, cardiometabolic and non-communicable diseases, cancer, environmental/occupational epidemiology), NHANES and survey data analysis, global health"),
 			tags$hr(),
-			HTML("Available: Mondays & Wednesdays")
+			HTML("Available: Thursdays & Fridays as of April 4th, 2016")
 		),
 
 		## TA: Leo
@@ -144,7 +144,7 @@ shinyUI(pageWithSidebar(
 				tags$p("Tuesdays & Fridays 1-3pm"),
 				helpText("Areas of focus: biostatistics, genomics"),
 				h4("Youssef Farag"),
-				tags$p("Mondays & Wednesdays 1:30-3:30pm"),
+				tags$p("Thursdays 1:15-3:15pm, Fridays 2-4 pm as of April 4th, 2016"),
 				helpText("Areas of focus: epidemiology (methods, cardiometabolic and non-communicable diseases, cancer, environmental/occupational epidemiology), NHANES and survey data analysis, global health"),
 				tags$hr()
 				
@@ -227,7 +227,7 @@ shinyUI(pageWithSidebar(
 				HTML("Powered by <a href='http://www.rstudio.com/shiny/'>Shiny</a> and hosted by <a href='http://www.rstudio.com/'>RStudio</a>."),
 				tags$hr(),
 				HTML("Developed by <a href='http://bit.ly/LColladoTorres'>L. Collado Torres</a>."),
-				HTML("Version 0.0.14. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
+				HTML("Version 0.0.15. Code hosted by <a href='https://github.com/lcolladotor/MPHcapstoneTA'>GitHub</a>."),
 				tags$hr()
 			)
 			

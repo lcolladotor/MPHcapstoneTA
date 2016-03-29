@@ -12,20 +12,20 @@ token <- readRDS("lcollado-droptoken.rds")
 
 ## Options
 TAchoices <- list(
-	"Monday" = c("Choose a TA", "Emily Hurley" = "Emily", "Youssef Farag" = "Youssef"),
+	"Monday" = c("Choose a TA", "Emily Hurley" = "Emily"),
 	"Tuesday" = c("Choose a TA", "Danielle Edwards" = "Danielle", "Emily Hurley" = "Emily", "Leonardo Collado Torres" = "Leo"),
-	"Wednesday" = c("Choose a TA", "Youssef Farag" = "Youssef"),
-	"Thursday" = c("Choose a TA", "Danielle Edwards" = "Danielle"),
-	"Friday" = c("Choose a TA", "Leonardo Collado Torres" = "Leo")
+	"Wednesday" = c("Choose a TA"),
+	"Thursday" = c("Choose a TA", "Danielle Edwards" = "Danielle", "Youssef Farag" = "Youssef"),
+	"Friday" = c("Choose a TA", "Youssef Farag" = "Youssef", "Leonardo Collado Torres" = "Leo")
 )
 
 TAhour <- list(
 	"Youssef" = list(
-		"Monday" = c("13:30-14:00", "14:00-14:30", "14:30-15:00", "15:00-15:30"),
+		"Monday" = "00:00",
 		"Tuesday" = "00:00",
-		"Wednesday" = c("13:30-14:00", "14:00-14:30", "14:30-15:00", "15:00-15:30"),
-		"Thursday" = "00:00",
-		"Friday" = "00:00"
+		"Wednesday" = "00:00",
+		"Thursday" = c("13:15-13:45", "13:45-14:15", "14:15-14:45", "14:45-15:15"),
+		"Friday" = c("14:00-14:30", "14:30-15:00", "15:00-15:30", "15:30-14:00")
 	),
 	"Leo" = list(
 		"Monday" = "00:00",
@@ -443,6 +443,12 @@ shinyServer(function(input, output, session) {
 #			choices <- c("00:00")
 #			}
 #		}
+        ## Special case for Youssef switching hours in the middle of 2016
+        if(input$ta == 'Youssef') {
+            new <- newEntry()
+            if( as.character(as.Date(new$desiredDate, tz = 'America/New_York')) == '2016-03-31')
+                choices <- c('00:00')
+        }
 
 		updateSelectInput(session, "hour", choices=choices, selected=choices[1])
 	})
