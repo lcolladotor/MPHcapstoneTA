@@ -446,7 +446,7 @@ shinyServer(function(input, output, session) {
         ## Special case for Youssef switching hours in the middle of 2016
         if(input$ta == 'Youssef') {
             new <- newEntry()
-            if( as.character(as.Date(new$desiredDate, tz = 'America/New_York')) == '2016-03-31')
+            if( as.character(as.Date(new$desiredDate, tz = 'America/New_York')) %in% c('2016-03-31', '2016-04-01'))
                 choices <- c('00:00')
         }
 
