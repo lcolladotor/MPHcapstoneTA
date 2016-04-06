@@ -400,7 +400,7 @@ shinyServer(function(input, output, session) {
 				updateSelectInput(session, "reserve", choices="Reservation submitted", selected="Reservation submitted")
 			}	
 			cat("\n\nYou have successfully completed your office hour reservation. You can verify this on the 'Current reservations' tab: your reservation will appear on the current slots taken.")
-        } else if (input$reserve %in% c("Submit reservation", "Reservation submitted")) {
+        } else if (input$reserve %in% c("Submit reservation", "Cancel reservation")) {
             updateSelectInput(session, "reserve", choices=c("", "Submit reservation", "Cancel reservation"), selected = "")
         }
 	})
