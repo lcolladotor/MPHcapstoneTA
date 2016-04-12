@@ -12,4 +12,4 @@ Please document the problem and submit it in the [issues](https://github.com/lco
 * Inspired by Alyssa Frazee's [MPH capstone office hour sign-up](http://biostat.jhsph.edu/~afrazee/mphcapstone.html). This is an attempt to make things more automized and to concentrate all sign up forms in one location.
 * Powered by [Shiny](http://www.rstudio.com/shiny/) and hosted by [RStudio](http://www.rstudio.com/).
 * Developed by [L. Collado Torres](http://bit.ly/LColladoTorres).
-* Version 0.0.16. Code hosted by [GitHub](https://github.com/lcolladotor/MPHcapstoneTA).
+* Version 0.0.17. Code hosted by [GitHub](https://github.com/lcolladotor/MPHcapstoneTA).
